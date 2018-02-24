@@ -96,6 +96,23 @@ namespace IO.Swagger.Controllers
         }
 
         /// <summary>
+        /// creates new Donor with a unique id
+        /// </summary>
+        /// <remarks>creates a new, unique Donor</remarks>
+        /// <param name="createDonor">new Donor object</param>
+        /// <response code="200">ok</response>
+        /// <response code="400">invalid content on Donor info</response>
+        /// <response code="401">unauthorized request</response>
+        [HttpPost]
+        [Route("/jgartee/AnimalRescue/1.0.0/donor")]
+        [ValidateModelState]
+        [SwaggerOperation("CreateDonor")]
+        public virtual void CreateDonor([FromBody]Donor createDonor)
+        { 
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// creates new Foster with a unique id
         /// </summary>
         /// <remarks>creates a new, unique Foster</remarks>
@@ -107,7 +124,7 @@ namespace IO.Swagger.Controllers
         [Route("/jgartee/AnimalRescue/1.0.0/foster")]
         [ValidateModelState]
         [SwaggerOperation("CreateFoster")]
-        public virtual void CreateFoster([FromBody]Contact createFoster)
+        public virtual void CreateFoster([FromBody]Foster createFoster)
         { 
             throw new NotImplementedException();
         }
@@ -475,6 +492,31 @@ namespace IO.Swagger.Controllers
         }
 
         /// <summary>
+        /// searches animal rescue doners
+        /// </summary>
+        /// <remarks>With no parameters, returns all Donors. Allows filters. </remarks>
+        /// <param name="searchString">pass an optional search string for looking up Donors </param>
+        /// <param name="skip">number of records to skip for pagination</param>
+        /// <param name="limit">maximum number of records to return</param>
+        /// <response code="200">search results matching specified criteria</response>
+        /// <response code="400">bad input parameter</response>
+        [HttpGet]
+        [Route("/jgartee/AnimalRescue/1.0.0/donor")]
+        [ValidateModelState]
+        [SwaggerOperation("SearchDonors")]
+        [SwaggerResponse(200, typeof(List<Donor>), "search results matching specified criteria")]
+        [SwaggerResponse(400, typeof(List<Donor>), "bad input parameter")]
+        public virtual IActionResult SearchDonors([FromQuery]string searchString, [FromQuery]int? skip, [FromQuery]int? limit)
+        { 
+            string exampleJson = null;
+            
+            var example = exampleJson != null
+            ? JsonConvert.DeserializeObject<List<Donor>>(exampleJson)
+            : default(List<Donor>);
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
         /// searches animal fosters
         /// </summary>
         /// <remarks>With no parameters, returns all registered Fosters. Allows filters. </remarks>
@@ -487,15 +529,15 @@ namespace IO.Swagger.Controllers
         [Route("/jgartee/AnimalRescue/1.0.0/foster")]
         [ValidateModelState]
         [SwaggerOperation("SearchFosters")]
-        [SwaggerResponse(200, typeof(List<Contact>), "search results matching specified criteria")]
-        [SwaggerResponse(400, typeof(List<Contact>), "bad input parameter")]
+        [SwaggerResponse(200, typeof(List<Foster>), "search results matching specified criteria")]
+        [SwaggerResponse(400, typeof(List<Foster>), "bad input parameter")]
         public virtual IActionResult SearchFosters([FromQuery]string searchString, [FromQuery]int? skip, [FromQuery]int? limit)
         { 
             string exampleJson = null;
             
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<List<Contact>>(exampleJson)
-            : default(List<Contact>);
+            ? JsonConvert.DeserializeObject<List<Foster>>(exampleJson)
+            : default(List<Foster>);
             return new ObjectResult(example);
         }
 
