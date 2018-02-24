@@ -239,13 +239,15 @@ namespace IO.Swagger.Controllers
         /// </summary>
         /// <remarks>Given a state, return an alpha list of counties in that state</remarks>
         /// <param name="state">state to retrieve counties for</param>
+        /// <param name="limit">Limits the number of items on a page</param>
+        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
         /// <response code="200">OK</response>
         [HttpGet]
         [Route("/jgartee/AnimalRescue/1.0.0/county")]
         [ValidateModelState]
         [SwaggerOperation("GetCountiesByState")]
         [SwaggerResponse(200, typeof(List<string>), "OK")]
-        public virtual IActionResult GetCountiesByState([FromQuery]string state)
+        public virtual IActionResult GetCountiesByState([FromQuery]string state, [FromQuery]int? limit, [FromQuery]int? offset)
         { 
             string exampleJson = null;
             
@@ -352,6 +354,9 @@ namespace IO.Swagger.Controllers
         /// searches all buildings at the Rescue
         /// </summary>
         /// <remarks>With no parameters, returns all Buildings at the Rescue </remarks>
+        /// <param name="limit">Limits the number of items on a page</param>
+        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
+        /// <param name="fromDate">Specifies the first intake date to return</param>
         /// <response code="200">ok</response>
         /// <response code="204">no results found</response>
         /// <response code="400">bad request - check parameter format</response>
@@ -364,7 +369,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(204, typeof(List<Building>), "no results found")]
         [SwaggerResponse(400, typeof(List<Building>), "bad request - check parameter format")]
         [SwaggerResponse(401, typeof(List<Building>), "unauthorized request for this user")]
-        public virtual IActionResult SearchAdoptions()
+        public virtual IActionResult SearchAdoptions([FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]DateTime? fromDate)
         { 
             string exampleJson = null;
             
@@ -378,6 +383,8 @@ namespace IO.Swagger.Controllers
         /// returns all buildings at a Rescue Location
         /// </summary>
         /// <remarks>With no parameters, returns all Buildings at the Rescue </remarks>
+        /// <param name="limit">Limits the number of items on a page</param>
+        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
         /// <response code="200">ok</response>
         /// <response code="204">no results found</response>
         /// <response code="400">bad request - check parameter format</response>
@@ -390,7 +397,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(204, typeof(List<Building>), "no results found")]
         [SwaggerResponse(400, typeof(List<Building>), "bad request - check parameter format")]
         [SwaggerResponse(401, typeof(List<Building>), "unauthorized request for this user")]
-        public virtual IActionResult SearchBuildings()
+        public virtual IActionResult SearchBuildings([FromQuery]int? limit, [FromQuery]int? offset)
         { 
             string exampleJson = null;
             
@@ -404,8 +411,9 @@ namespace IO.Swagger.Controllers
         /// searches cats
         /// </summary>
         /// <remarks>With no parameters, returns all cats currently in the shelter. Allows filters. </remarks>
+        /// <param name="limit">Limits the number of items on a page</param>
+        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
         /// <param name="fromDate">Specifies the first intake date to return</param>
-        /// <param name="toDate">Specifies the last intake date to return</param>
         /// <param name="name">Specifies a matching pattern for the name</param>
         /// <param name="adoptionStatus">Specifies one of the valid AdoptionStatus values</param>
         /// <param name="breed">breed of cat to retrieve</param>
@@ -423,7 +431,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(204, typeof(List<Cat>), "no results found")]
         [SwaggerResponse(400, typeof(List<Cat>), "bad request - check parameter format")]
         [SwaggerResponse(401, typeof(List<Cat>), "unauthorized request for this user")]
-        public virtual IActionResult SearchCats([FromQuery]DateTime? fromDate, [FromQuery]DateTime? toDate, [FromQuery]DateTime? name, [FromQuery]string adoptionStatus, [FromQuery]string breed, [FromQuery]string color, [FromQuery]string gender)
+        public virtual IActionResult SearchCats([FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]DateTime? fromDate, [FromQuery]DateTime? name, [FromQuery]string adoptionStatus, [FromQuery]string breed, [FromQuery]string color, [FromQuery]string gender)
         { 
             string exampleJson = null;
             
@@ -462,8 +470,9 @@ namespace IO.Swagger.Controllers
         /// searches dogs
         /// </summary>
         /// <remarks>With no parameters, returns all dogss currently in the shelter. Allows filters. </remarks>
+        /// <param name="limit">Limits the number of items on a page</param>
+        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
         /// <param name="fromDate">Specifies the first intake date to return</param>
-        /// <param name="toDate">Specifies the last intake date to return</param>
         /// <param name="name">Specifies a matching pattern for the name</param>
         /// <param name="adoptionStatus">Specifies one of the valid AdoptionStatus values</param>
         /// <param name="breed">breed of dog to retrieve</param>
@@ -481,7 +490,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(204, typeof(List<Dog>), "no results found")]
         [SwaggerResponse(400, typeof(List<Dog>), "bad request - check parameter format")]
         [SwaggerResponse(401, typeof(List<Dog>), "unauthorized request for this user")]
-        public virtual IActionResult SearchDobs([FromQuery]DateTime? fromDate, [FromQuery]DateTime? toDate, [FromQuery]DateTime? name, [FromQuery]string adoptionStatus, [FromQuery]string breed, [FromQuery]string color, [FromQuery]string gender)
+        public virtual IActionResult SearchDobs([FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]DateTime? fromDate, [FromQuery]DateTime? name, [FromQuery]string adoptionStatus, [FromQuery]string breed, [FromQuery]string color, [FromQuery]string gender)
         { 
             string exampleJson = null;
             
@@ -545,9 +554,9 @@ namespace IO.Swagger.Controllers
         /// searches inventory
         /// </summary>
         /// <remarks>By passing in the appropriate options, you can search for available inventory in the system </remarks>
+        /// <param name="limit">Limits the number of items on a page</param>
+        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
         /// <param name="searchString">pass an optional search string for looking up inventory</param>
-        /// <param name="skip">number of records to skip for pagination</param>
-        /// <param name="limit">maximum number of records to return</param>
         /// <response code="200">search results matching criteria</response>
         /// <response code="400">bad input parameter</response>
         [HttpGet]
@@ -556,7 +565,7 @@ namespace IO.Swagger.Controllers
         [SwaggerOperation("SearchInventory")]
         [SwaggerResponse(200, typeof(List<InventoryItem>), "search results matching criteria")]
         [SwaggerResponse(400, typeof(List<InventoryItem>), "bad input parameter")]
-        public virtual IActionResult SearchInventory([FromQuery]string searchString, [FromQuery]int? skip, [FromQuery]int? limit)
+        public virtual IActionResult SearchInventory([FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]string searchString)
         { 
             string exampleJson = null;
             
@@ -570,6 +579,8 @@ namespace IO.Swagger.Controllers
         /// returns all kennels in a Room
         /// </summary>
         /// <remarks>With no parameters, returns all berths at the Rescue </remarks>
+        /// <param name="limit">Limits the number of items on a page</param>
+        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
         /// <response code="200">ok</response>
         /// <response code="204">no results found</response>
         /// <response code="400">bad request - check parameter format</response>
@@ -582,7 +593,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(204, typeof(List<Kennel>), "no results found")]
         [SwaggerResponse(400, typeof(List<Kennel>), "bad request - check parameter format")]
         [SwaggerResponse(401, typeof(List<Kennel>), "unauthorized request for this user")]
-        public virtual IActionResult SearchKennels()
+        public virtual IActionResult SearchKennels([FromQuery]int? limit, [FromQuery]int? offset)
         { 
             string exampleJson = null;
             
@@ -596,6 +607,8 @@ namespace IO.Swagger.Controllers
         /// searches all locations for the Rescue
         /// </summary>
         /// <remarks>With no parameters, returns all Locations for the Rescue </remarks>
+        /// <param name="limit">Limits the number of items on a page</param>
+        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
         /// <response code="200">ok</response>
         /// <response code="204">no results found</response>
         /// <response code="400">bad request - check parameter format</response>
@@ -608,7 +621,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(204, typeof(List<Location>), "no results found")]
         [SwaggerResponse(400, typeof(List<Location>), "bad request - check parameter format")]
         [SwaggerResponse(401, typeof(List<Location>), "unauthorized request for this user")]
-        public virtual IActionResult SearchLocations()
+        public virtual IActionResult SearchLocations([FromQuery]int? limit, [FromQuery]int? offset)
         { 
             string exampleJson = null;
             
@@ -622,6 +635,8 @@ namespace IO.Swagger.Controllers
         /// searches all buildings at the Rescue
         /// </summary>
         /// <remarks>With no parameters, returns all Rooms at the Rescue </remarks>
+        /// <param name="limit">Limits the number of items on a page</param>
+        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
         /// <response code="200">ok</response>
         /// <response code="204">no results found</response>
         /// <response code="400">bad request - check parameter format</response>
@@ -634,7 +649,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(204, typeof(List<Room>), "no results found")]
         [SwaggerResponse(400, typeof(List<Room>), "bad request - check parameter format")]
         [SwaggerResponse(401, typeof(List<Room>), "unauthorized request for this user")]
-        public virtual IActionResult SearchRoomss()
+        public virtual IActionResult SearchRoomss([FromQuery]int? limit, [FromQuery]int? offset)
         { 
             string exampleJson = null;
             
