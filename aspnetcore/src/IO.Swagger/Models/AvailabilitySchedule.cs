@@ -37,39 +37,19 @@ namespace IO.Swagger.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class Volunteer :  IEquatable<Volunteer>
+    public partial class AvailabilitySchedule :  IEquatable<AvailabilitySchedule>
     { 
         /// <summary>
-        /// Gets or Sets Id
+        /// Gets or Sets DateRange
         /// </summary>
-        [Required]
-        [DataMember(Name="id")]
-        public Guid? Id { get; set; }
+        [DataMember(Name="dateRange")]
+        public AvailabilityScheduleDateRange DateRange { get; set; }
 
         /// <summary>
-        /// Gets or Sets ContactId
+        /// Gets or Sets Schedule
         /// </summary>
-        [Required]
-        [DataMember(Name="contactId")]
-        public Contact ContactId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets StartDate
-        /// </summary>
-        [DataMember(Name="startDate")]
-        public DateTime? StartDate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EndDate
-        /// </summary>
-        [DataMember(Name="endDate")]
-        public DateTime? EndDate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AvailablitySchedule
-        /// </summary>
-        [DataMember(Name="availablitySchedule")]
-        public AvailabilitySchedule AvailablitySchedule { get; set; }
+        [DataMember(Name="schedule")]
+        public List<AvailabilityBlock> Schedule { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,12 +58,9 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Volunteer {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  ContactId: ").Append(ContactId).Append("\n");
-            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
-            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
-            sb.Append("  AvailablitySchedule: ").Append(AvailablitySchedule).Append("\n");
+            sb.Append("class AvailabilitySchedule {\n");
+            sb.Append("  DateRange: ").Append(DateRange).Append("\n");
+            sb.Append("  Schedule: ").Append(Schedule).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,44 +83,29 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((Volunteer)obj);
+            return obj.GetType() == GetType() && Equals((AvailabilitySchedule)obj);
         }
 
         /// <summary>
-        /// Returns true if Volunteer instances are equal
+        /// Returns true if AvailabilitySchedule instances are equal
         /// </summary>
-        /// <param name="other">Instance of Volunteer to be compared</param>
+        /// <param name="other">Instance of AvailabilitySchedule to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Volunteer other)
+        public bool Equals(AvailabilitySchedule other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Id == other.Id ||
-                    Id != null &&
-                    Id.Equals(other.Id)
+                    DateRange == other.DateRange ||
+                    DateRange != null &&
+                    DateRange.Equals(other.DateRange)
                 ) && 
                 (
-                    ContactId == other.ContactId ||
-                    ContactId != null &&
-                    ContactId.Equals(other.ContactId)
-                ) && 
-                (
-                    StartDate == other.StartDate ||
-                    StartDate != null &&
-                    StartDate.Equals(other.StartDate)
-                ) && 
-                (
-                    EndDate == other.EndDate ||
-                    EndDate != null &&
-                    EndDate.Equals(other.EndDate)
-                ) && 
-                (
-                    AvailablitySchedule == other.AvailablitySchedule ||
-                    AvailablitySchedule != null &&
-                    AvailablitySchedule.Equals(other.AvailablitySchedule)
+                    Schedule == other.Schedule ||
+                    Schedule != null &&
+                    Schedule.SequenceEqual(other.Schedule)
                 );
         }
 
@@ -157,16 +119,10 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                    if (ContactId != null)
-                    hashCode = hashCode * 59 + ContactId.GetHashCode();
-                    if (StartDate != null)
-                    hashCode = hashCode * 59 + StartDate.GetHashCode();
-                    if (EndDate != null)
-                    hashCode = hashCode * 59 + EndDate.GetHashCode();
-                    if (AvailablitySchedule != null)
-                    hashCode = hashCode * 59 + AvailablitySchedule.GetHashCode();
+                    if (DateRange != null)
+                    hashCode = hashCode * 59 + DateRange.GetHashCode();
+                    if (Schedule != null)
+                    hashCode = hashCode * 59 + Schedule.GetHashCode();
                 return hashCode;
             }
         }
@@ -174,12 +130,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(Volunteer left, Volunteer right)
+        public static bool operator ==(AvailabilitySchedule left, AvailabilitySchedule right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Volunteer left, Volunteer right)
+        public static bool operator !=(AvailabilitySchedule left, AvailabilitySchedule right)
         {
             return !Equals(left, right);
         }
