@@ -414,7 +414,7 @@ namespace IO.Swagger.Controllers
         }
 
         /// <summary>
-        /// searches all buildings at the Rescue
+        /// returns all buildings at a Rescue Location
         /// </summary>
         /// <remarks>With no parameters, returns all Buildings at the Rescue </remarks>
         /// <response code="200">ok</response>
@@ -606,7 +606,7 @@ namespace IO.Swagger.Controllers
         }
 
         /// <summary>
-        /// searches all kennels at the Rescue
+        /// returns all kennels in a Room
         /// </summary>
         /// <remarks>With no parameters, returns all berths at the Rescue </remarks>
         /// <response code="200">ok</response>
@@ -616,12 +616,12 @@ namespace IO.Swagger.Controllers
         [HttpGet]
         [Route("/jgartee/AnimalRescue/1.0.0/kennel")]
         [ValidateModelState]
-        [SwaggerOperation("SearchKennelss")]
+        [SwaggerOperation("SearchKennels")]
         [SwaggerResponse(200, typeof(List<Kennel>), "ok")]
         [SwaggerResponse(204, typeof(List<Kennel>), "no results found")]
         [SwaggerResponse(400, typeof(List<Kennel>), "bad request - check parameter format")]
         [SwaggerResponse(401, typeof(List<Kennel>), "unauthorized request for this user")]
-        public virtual IActionResult SearchKennelss()
+        public virtual IActionResult SearchKennels()
         { 
             string exampleJson = null;
             
