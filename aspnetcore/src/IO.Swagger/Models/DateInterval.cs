@@ -38,22 +38,321 @@ namespace IO.Swagger.Models
     /// </summary>
     [DataContract]
     public partial class DateInterval :  IEquatable<DateInterval>
-    { 
+    {         /// <summary>
+        /// Gets or Sets StartYear
+        /// </summary>
+        public enum YearSelect
+        { 
+            /// <summary>
+            /// Enum _2000Enum for "2000"
+            /// </summary>
+            [EnumMember(Value = "2000")]
+            _2000Enum = 1,
+            
+            /// <summary>
+            /// Enum _2001Enum for "2001"
+            /// </summary>
+            [EnumMember(Value = "2001")]
+            _2001Enum = 2,
+            
+            /// <summary>
+            /// Enum _2002Enum for "2002"
+            /// </summary>
+            [EnumMember(Value = "2002")]
+            _2002Enum = 3,
+            
+            /// <summary>
+            /// Enum _2003Enum for "2003"
+            /// </summary>
+            [EnumMember(Value = "2003")]
+            _2003Enum = 4,
+            
+            /// <summary>
+            /// Enum _2004Enum for "2004"
+            /// </summary>
+            [EnumMember(Value = "2004")]
+            _2004Enum = 5,
+            
+            /// <summary>
+            /// Enum _2005Enum for "2005"
+            /// </summary>
+            [EnumMember(Value = "2005")]
+            _2005Enum = 6,
+            
+            /// <summary>
+            /// Enum _2006Enum for "2006"
+            /// </summary>
+            [EnumMember(Value = "2006")]
+            _2006Enum = 7,
+            
+            /// <summary>
+            /// Enum _2007Enum for "2007"
+            /// </summary>
+            [EnumMember(Value = "2007")]
+            _2007Enum = 8,
+            
+            /// <summary>
+            /// Enum _2008Enum for "2008"
+            /// </summary>
+            [EnumMember(Value = "2008")]
+            _2008Enum = 9,
+            
+            /// <summary>
+            /// Enum _2009Enum for "2009"
+            /// </summary>
+            [EnumMember(Value = "2009")]
+            _2009Enum = 10,
+            
+            /// <summary>
+            /// Enum _2010Enum for "2010"
+            /// </summary>
+            [EnumMember(Value = "2010")]
+            _2010Enum = 11,
+            
+            /// <summary>
+            /// Enum _2011Enum for "2011"
+            /// </summary>
+            [EnumMember(Value = "2011")]
+            _2011Enum = 12,
+            
+            /// <summary>
+            /// Enum _2012Enum for "2012"
+            /// </summary>
+            [EnumMember(Value = "2012")]
+            _2012Enum = 13,
+            
+            /// <summary>
+            /// Enum _2013Enum for "2013"
+            /// </summary>
+            [EnumMember(Value = "2013")]
+            _2013Enum = 14,
+            
+            /// <summary>
+            /// Enum _2014Enum for "2014"
+            /// </summary>
+            [EnumMember(Value = "2014")]
+            _2014Enum = 15,
+            
+            /// <summary>
+            /// Enum _2015Enum for "2015"
+            /// </summary>
+            [EnumMember(Value = "2015")]
+            _2015Enum = 16,
+            
+            /// <summary>
+            /// Enum _2016Enum for "2016"
+            /// </summary>
+            [EnumMember(Value = "2016")]
+            _2016Enum = 17,
+            
+            /// <summary>
+            /// Enum _2017Enum for "2017"
+            /// </summary>
+            [EnumMember(Value = "2017")]
+            _2017Enum = 18,
+            
+            /// <summary>
+            /// Enum _2018Enum for "2018"
+            /// </summary>
+            [EnumMember(Value = "2018")]
+            _2018Enum = 19,
+            
+            /// <summary>
+            /// Enum _2019Enum for "2019"
+            /// </summary>
+            [EnumMember(Value = "2019")]
+            _2019Enum = 20,
+            
+            /// <summary>
+            /// Enum _2020Enum for "2020"
+            /// </summary>
+            [EnumMember(Value = "2020")]
+            _2020Enum = 21,
+            
+            /// <summary>
+            /// Enum _2021Enum for "2021"
+            /// </summary>
+            [EnumMember(Value = "2021")]
+            _2021Enum = 22,
+            
+            /// <summary>
+            /// Enum _2022Enum for "2022"
+            /// </summary>
+            [EnumMember(Value = "2022")]
+            _2022Enum = 23,
+            
+            /// <summary>
+            /// Enum _2023Enum for "2023"
+            /// </summary>
+            [EnumMember(Value = "2023")]
+            _2023Enum = 24,
+            
+            /// <summary>
+            /// Enum _2024Enum for "2024"
+            /// </summary>
+            [EnumMember(Value = "2024")]
+            _2024Enum = 25,
+            
+            /// <summary>
+            /// Enum _2025Enum for "2025"
+            /// </summary>
+            [EnumMember(Value = "2025")]
+            _2025Enum = 26,
+            
+            /// <summary>
+            /// Enum _2026Enum for "2026"
+            /// </summary>
+            [EnumMember(Value = "2026")]
+            _2026Enum = 27,
+            
+            /// <summary>
+            /// Enum _2027Enum for "2027"
+            /// </summary>
+            [EnumMember(Value = "2027")]
+            _2027Enum = 28,
+            
+            /// <summary>
+            /// Enum _2028Enum for "2028"
+            /// </summary>
+            [EnumMember(Value = "2028")]
+            _2028Enum = 29,
+            
+            /// <summary>
+            /// Enum _2029Enum for "2029"
+            /// </summary>
+            [EnumMember(Value = "2029")]
+            _2029Enum = 30,
+            
+            /// <summary>
+            /// Enum _2030Enum for "2030"
+            /// </summary>
+            [EnumMember(Value = "2030")]
+            _2030Enum = 31,
+            
+            /// <summary>
+            /// Enum _2031Enum for "2031"
+            /// </summary>
+            [EnumMember(Value = "2031")]
+            _2031Enum = 32,
+            
+            /// <summary>
+            /// Enum _2032Enum for "2032"
+            /// </summary>
+            [EnumMember(Value = "2032")]
+            _2032Enum = 33,
+            
+            /// <summary>
+            /// Enum _2033Enum for "2033"
+            /// </summary>
+            [EnumMember(Value = "2033")]
+            _2033Enum = 34,
+            
+            /// <summary>
+            /// Enum _2034Enum for "2034"
+            /// </summary>
+            [EnumMember(Value = "2034")]
+            _2034Enum = 35,
+            
+            /// <summary>
+            /// Enum _2035Enum for "2035"
+            /// </summary>
+            [EnumMember(Value = "2035")]
+            _2035Enum = 36,
+            
+            /// <summary>
+            /// Enum _2036Enum for "2036"
+            /// </summary>
+            [EnumMember(Value = "2036")]
+            _2036Enum = 37,
+            
+            /// <summary>
+            /// Enum _2037Enum for "2037"
+            /// </summary>
+            [EnumMember(Value = "2037")]
+            _2037Enum = 38,
+            
+            /// <summary>
+            /// Enum _2038Enum for "2038"
+            /// </summary>
+            [EnumMember(Value = "2038")]
+            _2038Enum = 39,
+            
+            /// <summary>
+            /// Enum _2039Enum for "2039"
+            /// </summary>
+            [EnumMember(Value = "2039")]
+            _2039Enum = 40,
+            
+            /// <summary>
+            /// Enum _2040Enum for "2040"
+            /// </summary>
+            [EnumMember(Value = "2040")]
+            _2040Enum = 41,
+            
+            /// <summary>
+            /// Enum _2041Enum for "2041"
+            /// </summary>
+            [EnumMember(Value = "2041")]
+            _2041Enum = 42,
+            
+            /// <summary>
+            /// Enum _2042Enum for "2042"
+            /// </summary>
+            [EnumMember(Value = "2042")]
+            _2042Enum = 43,
+            
+            /// <summary>
+            /// Enum _2043Enum for "2043"
+            /// </summary>
+            [EnumMember(Value = "2043")]
+            _2043Enum = 44,
+            
+            /// <summary>
+            /// Enum _2044Enum for "2044"
+            /// </summary>
+            [EnumMember(Value = "2044")]
+            _2044Enum = 45,
+            
+            /// <summary>
+            /// Enum _2045Enum for "2045"
+            /// </summary>
+            [EnumMember(Value = "2045")]
+            _2045Enum = 46,
+            
+            /// <summary>
+            /// Enum _2046Enum for "2046"
+            /// </summary>
+            [EnumMember(Value = "2046")]
+            _2046Enum = 47,
+            
+            /// <summary>
+            /// Enum _2047Enum for "2047"
+            /// </summary>
+            [EnumMember(Value = "2047")]
+            _2047Enum = 48,
+            
+            /// <summary>
+            /// Enum _2048Enum for "2048"
+            /// </summary>
+            [EnumMember(Value = "2048")]
+            _2048Enum = 49,
+            
+            /// <summary>
+            /// Enum _2049Enum for "2049"
+            /// </summary>
+            [EnumMember(Value = "2049")]
+            _2049Enum = 50
+        }
+
         /// <summary>
         /// Gets or Sets StartYear
         /// </summary>
         [DataMember(Name="startYear")]
-        public int? StartYear { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EndYear
-        /// </summary>
-        [DataMember(Name="endYear")]
-        public int? EndYear { get; set; }
+        public YearSelect? StartYear { get; set; }
         /// <summary>
         /// Gets or Sets StartMonth
         /// </summary>
-        public enum Month
+        public enum MonthSelect
         { 
             /// <summary>
             /// Enum JanuaryEnum for "January"
@@ -132,11 +431,11 @@ namespace IO.Swagger.Models
         /// Gets or Sets StartMonth
         /// </summary>
         [DataMember(Name="startMonth")]
-        public Month? StartMonth { get; set; }
+        public MonthSelect? StartMonth { get; set; }
         /// <summary>
         /// Gets or Sets StartDayOfMonth
         /// </summary>
-        public enum DayOfMonth
+        public enum DayOfMonthSelect
         { 
             /// <summary>
             /// Enum _1Enum for "1"
@@ -329,11 +628,322 @@ namespace IO.Swagger.Models
         /// Gets or Sets StartDayOfMonth
         /// </summary>
         [DataMember(Name="startDayOfMonth")]
-        public DayOfMonth? StartDayOfMonth { get; set; }
+        public DayOfMonthSelect? StartDayOfMonth { get; set; }
+        /// <summary>
+        /// Gets or Sets EndYear
+        /// </summary>
+        public enum YearSelect
+        { 
+            /// <summary>
+            /// Enum _2000Enum for "2000"
+            /// </summary>
+            [EnumMember(Value = "2000")]
+            _2000Enum = 1,
+            
+            /// <summary>
+            /// Enum _2001Enum for "2001"
+            /// </summary>
+            [EnumMember(Value = "2001")]
+            _2001Enum = 2,
+            
+            /// <summary>
+            /// Enum _2002Enum for "2002"
+            /// </summary>
+            [EnumMember(Value = "2002")]
+            _2002Enum = 3,
+            
+            /// <summary>
+            /// Enum _2003Enum for "2003"
+            /// </summary>
+            [EnumMember(Value = "2003")]
+            _2003Enum = 4,
+            
+            /// <summary>
+            /// Enum _2004Enum for "2004"
+            /// </summary>
+            [EnumMember(Value = "2004")]
+            _2004Enum = 5,
+            
+            /// <summary>
+            /// Enum _2005Enum for "2005"
+            /// </summary>
+            [EnumMember(Value = "2005")]
+            _2005Enum = 6,
+            
+            /// <summary>
+            /// Enum _2006Enum for "2006"
+            /// </summary>
+            [EnumMember(Value = "2006")]
+            _2006Enum = 7,
+            
+            /// <summary>
+            /// Enum _2007Enum for "2007"
+            /// </summary>
+            [EnumMember(Value = "2007")]
+            _2007Enum = 8,
+            
+            /// <summary>
+            /// Enum _2008Enum for "2008"
+            /// </summary>
+            [EnumMember(Value = "2008")]
+            _2008Enum = 9,
+            
+            /// <summary>
+            /// Enum _2009Enum for "2009"
+            /// </summary>
+            [EnumMember(Value = "2009")]
+            _2009Enum = 10,
+            
+            /// <summary>
+            /// Enum _2010Enum for "2010"
+            /// </summary>
+            [EnumMember(Value = "2010")]
+            _2010Enum = 11,
+            
+            /// <summary>
+            /// Enum _2011Enum for "2011"
+            /// </summary>
+            [EnumMember(Value = "2011")]
+            _2011Enum = 12,
+            
+            /// <summary>
+            /// Enum _2012Enum for "2012"
+            /// </summary>
+            [EnumMember(Value = "2012")]
+            _2012Enum = 13,
+            
+            /// <summary>
+            /// Enum _2013Enum for "2013"
+            /// </summary>
+            [EnumMember(Value = "2013")]
+            _2013Enum = 14,
+            
+            /// <summary>
+            /// Enum _2014Enum for "2014"
+            /// </summary>
+            [EnumMember(Value = "2014")]
+            _2014Enum = 15,
+            
+            /// <summary>
+            /// Enum _2015Enum for "2015"
+            /// </summary>
+            [EnumMember(Value = "2015")]
+            _2015Enum = 16,
+            
+            /// <summary>
+            /// Enum _2016Enum for "2016"
+            /// </summary>
+            [EnumMember(Value = "2016")]
+            _2016Enum = 17,
+            
+            /// <summary>
+            /// Enum _2017Enum for "2017"
+            /// </summary>
+            [EnumMember(Value = "2017")]
+            _2017Enum = 18,
+            
+            /// <summary>
+            /// Enum _2018Enum for "2018"
+            /// </summary>
+            [EnumMember(Value = "2018")]
+            _2018Enum = 19,
+            
+            /// <summary>
+            /// Enum _2019Enum for "2019"
+            /// </summary>
+            [EnumMember(Value = "2019")]
+            _2019Enum = 20,
+            
+            /// <summary>
+            /// Enum _2020Enum for "2020"
+            /// </summary>
+            [EnumMember(Value = "2020")]
+            _2020Enum = 21,
+            
+            /// <summary>
+            /// Enum _2021Enum for "2021"
+            /// </summary>
+            [EnumMember(Value = "2021")]
+            _2021Enum = 22,
+            
+            /// <summary>
+            /// Enum _2022Enum for "2022"
+            /// </summary>
+            [EnumMember(Value = "2022")]
+            _2022Enum = 23,
+            
+            /// <summary>
+            /// Enum _2023Enum for "2023"
+            /// </summary>
+            [EnumMember(Value = "2023")]
+            _2023Enum = 24,
+            
+            /// <summary>
+            /// Enum _2024Enum for "2024"
+            /// </summary>
+            [EnumMember(Value = "2024")]
+            _2024Enum = 25,
+            
+            /// <summary>
+            /// Enum _2025Enum for "2025"
+            /// </summary>
+            [EnumMember(Value = "2025")]
+            _2025Enum = 26,
+            
+            /// <summary>
+            /// Enum _2026Enum for "2026"
+            /// </summary>
+            [EnumMember(Value = "2026")]
+            _2026Enum = 27,
+            
+            /// <summary>
+            /// Enum _2027Enum for "2027"
+            /// </summary>
+            [EnumMember(Value = "2027")]
+            _2027Enum = 28,
+            
+            /// <summary>
+            /// Enum _2028Enum for "2028"
+            /// </summary>
+            [EnumMember(Value = "2028")]
+            _2028Enum = 29,
+            
+            /// <summary>
+            /// Enum _2029Enum for "2029"
+            /// </summary>
+            [EnumMember(Value = "2029")]
+            _2029Enum = 30,
+            
+            /// <summary>
+            /// Enum _2030Enum for "2030"
+            /// </summary>
+            [EnumMember(Value = "2030")]
+            _2030Enum = 31,
+            
+            /// <summary>
+            /// Enum _2031Enum for "2031"
+            /// </summary>
+            [EnumMember(Value = "2031")]
+            _2031Enum = 32,
+            
+            /// <summary>
+            /// Enum _2032Enum for "2032"
+            /// </summary>
+            [EnumMember(Value = "2032")]
+            _2032Enum = 33,
+            
+            /// <summary>
+            /// Enum _2033Enum for "2033"
+            /// </summary>
+            [EnumMember(Value = "2033")]
+            _2033Enum = 34,
+            
+            /// <summary>
+            /// Enum _2034Enum for "2034"
+            /// </summary>
+            [EnumMember(Value = "2034")]
+            _2034Enum = 35,
+            
+            /// <summary>
+            /// Enum _2035Enum for "2035"
+            /// </summary>
+            [EnumMember(Value = "2035")]
+            _2035Enum = 36,
+            
+            /// <summary>
+            /// Enum _2036Enum for "2036"
+            /// </summary>
+            [EnumMember(Value = "2036")]
+            _2036Enum = 37,
+            
+            /// <summary>
+            /// Enum _2037Enum for "2037"
+            /// </summary>
+            [EnumMember(Value = "2037")]
+            _2037Enum = 38,
+            
+            /// <summary>
+            /// Enum _2038Enum for "2038"
+            /// </summary>
+            [EnumMember(Value = "2038")]
+            _2038Enum = 39,
+            
+            /// <summary>
+            /// Enum _2039Enum for "2039"
+            /// </summary>
+            [EnumMember(Value = "2039")]
+            _2039Enum = 40,
+            
+            /// <summary>
+            /// Enum _2040Enum for "2040"
+            /// </summary>
+            [EnumMember(Value = "2040")]
+            _2040Enum = 41,
+            
+            /// <summary>
+            /// Enum _2041Enum for "2041"
+            /// </summary>
+            [EnumMember(Value = "2041")]
+            _2041Enum = 42,
+            
+            /// <summary>
+            /// Enum _2042Enum for "2042"
+            /// </summary>
+            [EnumMember(Value = "2042")]
+            _2042Enum = 43,
+            
+            /// <summary>
+            /// Enum _2043Enum for "2043"
+            /// </summary>
+            [EnumMember(Value = "2043")]
+            _2043Enum = 44,
+            
+            /// <summary>
+            /// Enum _2044Enum for "2044"
+            /// </summary>
+            [EnumMember(Value = "2044")]
+            _2044Enum = 45,
+            
+            /// <summary>
+            /// Enum _2045Enum for "2045"
+            /// </summary>
+            [EnumMember(Value = "2045")]
+            _2045Enum = 46,
+            
+            /// <summary>
+            /// Enum _2046Enum for "2046"
+            /// </summary>
+            [EnumMember(Value = "2046")]
+            _2046Enum = 47,
+            
+            /// <summary>
+            /// Enum _2047Enum for "2047"
+            /// </summary>
+            [EnumMember(Value = "2047")]
+            _2047Enum = 48,
+            
+            /// <summary>
+            /// Enum _2048Enum for "2048"
+            /// </summary>
+            [EnumMember(Value = "2048")]
+            _2048Enum = 49,
+            
+            /// <summary>
+            /// Enum _2049Enum for "2049"
+            /// </summary>
+            [EnumMember(Value = "2049")]
+            _2049Enum = 50
+        }
+
+        /// <summary>
+        /// Gets or Sets EndYear
+        /// </summary>
+        [DataMember(Name="endYear")]
+        public YearSelect? EndYear { get; set; }
         /// <summary>
         /// Gets or Sets EndMonth
         /// </summary>
-        public enum Month
+        public enum MonthSelect
         { 
             /// <summary>
             /// Enum JanuaryEnum for "January"
@@ -412,11 +1022,11 @@ namespace IO.Swagger.Models
         /// Gets or Sets EndMonth
         /// </summary>
         [DataMember(Name="endMonth")]
-        public Month? EndMonth { get; set; }
+        public MonthSelect? EndMonth { get; set; }
         /// <summary>
         /// Gets or Sets EndDayOfMonth
         /// </summary>
-        public enum DayOfMonth
+        public enum DayOfMonthSelect
         { 
             /// <summary>
             /// Enum _1Enum for "1"
@@ -609,7 +1219,7 @@ namespace IO.Swagger.Models
         /// Gets or Sets EndDayOfMonth
         /// </summary>
         [DataMember(Name="endDayOfMonth")]
-        public DayOfMonth? EndDayOfMonth { get; set; }
+        public DayOfMonthSelect? EndDayOfMonth { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -620,9 +1230,9 @@ namespace IO.Swagger.Models
             var sb = new StringBuilder();
             sb.Append("class DateInterval {\n");
             sb.Append("  StartYear: ").Append(StartYear).Append("\n");
-            sb.Append("  EndYear: ").Append(EndYear).Append("\n");
             sb.Append("  StartMonth: ").Append(StartMonth).Append("\n");
             sb.Append("  StartDayOfMonth: ").Append(StartDayOfMonth).Append("\n");
+            sb.Append("  EndYear: ").Append(EndYear).Append("\n");
             sb.Append("  EndMonth: ").Append(EndMonth).Append("\n");
             sb.Append("  EndDayOfMonth: ").Append(EndDayOfMonth).Append("\n");
             sb.Append("}\n");
@@ -667,11 +1277,6 @@ namespace IO.Swagger.Models
                     StartYear.Equals(other.StartYear)
                 ) && 
                 (
-                    EndYear == other.EndYear ||
-                    EndYear != null &&
-                    EndYear.Equals(other.EndYear)
-                ) && 
-                (
                     StartMonth == other.StartMonth ||
                     StartMonth != null &&
                     StartMonth.Equals(other.StartMonth)
@@ -680,6 +1285,11 @@ namespace IO.Swagger.Models
                     StartDayOfMonth == other.StartDayOfMonth ||
                     StartDayOfMonth != null &&
                     StartDayOfMonth.Equals(other.StartDayOfMonth)
+                ) && 
+                (
+                    EndYear == other.EndYear ||
+                    EndYear != null &&
+                    EndYear.Equals(other.EndYear)
                 ) && 
                 (
                     EndMonth == other.EndMonth ||
@@ -705,12 +1315,12 @@ namespace IO.Swagger.Models
                 // Suitable nullity checks etc, of course :)
                     if (StartYear != null)
                     hashCode = hashCode * 59 + StartYear.GetHashCode();
-                    if (EndYear != null)
-                    hashCode = hashCode * 59 + EndYear.GetHashCode();
                     if (StartMonth != null)
                     hashCode = hashCode * 59 + StartMonth.GetHashCode();
                     if (StartDayOfMonth != null)
                     hashCode = hashCode * 59 + StartDayOfMonth.GetHashCode();
+                    if (EndYear != null)
+                    hashCode = hashCode * 59 + EndYear.GetHashCode();
                     if (EndMonth != null)
                     hashCode = hashCode * 59 + EndMonth.GetHashCode();
                     if (EndDayOfMonth != null)

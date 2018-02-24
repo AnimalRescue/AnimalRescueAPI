@@ -37,20 +37,8 @@ namespace IO.Swagger.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class VolunteerAvailability :  IEquatable<VolunteerAvailability>
+    public partial class DayInterval : List<DaySelect>,  IEquatable<DayInterval>
     { 
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name="id")]
-        public Guid? Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Intervals
-        /// </summary>
-        [DataMember(Name="intervals")]
-        public List<VolunteerAvailabilityIntervals> Intervals { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -58,9 +46,7 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VolunteerAvailability {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Intervals: ").Append(Intervals).Append("\n");
+            sb.Append("class DayInterval {\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -69,7 +55,7 @@ namespace IO.Swagger.Models
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public  new string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -83,30 +69,20 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((VolunteerAvailability)obj);
+            return obj.GetType() == GetType() && Equals((DayInterval)obj);
         }
 
         /// <summary>
-        /// Returns true if VolunteerAvailability instances are equal
+        /// Returns true if DayInterval instances are equal
         /// </summary>
-        /// <param name="other">Instance of VolunteerAvailability to be compared</param>
+        /// <param name="other">Instance of DayInterval to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VolunteerAvailability other)
+        public bool Equals(DayInterval other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return 
-                (
-                    Id == other.Id ||
-                    Id != null &&
-                    Id.Equals(other.Id)
-                ) && 
-                (
-                    Intervals == other.Intervals ||
-                    Intervals != null &&
-                    Intervals.SequenceEqual(other.Intervals)
-                );
+            return false;
         }
 
         /// <summary>
@@ -119,10 +95,6 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                    if (Intervals != null)
-                    hashCode = hashCode * 59 + Intervals.GetHashCode();
                 return hashCode;
             }
         }
@@ -130,12 +102,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(VolunteerAvailability left, VolunteerAvailability right)
+        public static bool operator ==(DayInterval left, DayInterval right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(VolunteerAvailability left, VolunteerAvailability right)
+        public static bool operator !=(DayInterval left, DayInterval right)
         {
             return !Equals(left, right);
         }

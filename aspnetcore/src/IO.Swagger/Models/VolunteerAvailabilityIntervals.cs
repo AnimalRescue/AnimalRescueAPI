@@ -37,19 +37,19 @@ namespace IO.Swagger.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class VolunteerAvailability :  IEquatable<VolunteerAvailability>
+    public partial class VolunteerAvailabilityIntervals :  IEquatable<VolunteerAvailabilityIntervals>
     { 
         /// <summary>
-        /// Gets or Sets Id
+        /// Gets or Sets DateInterval
         /// </summary>
-        [DataMember(Name="id")]
-        public Guid? Id { get; set; }
+        [DataMember(Name="dateInterval")]
+        public DateInterval DateInterval { get; set; }
 
         /// <summary>
-        /// Gets or Sets Intervals
+        /// Gets or Sets DayInterval
         /// </summary>
-        [DataMember(Name="intervals")]
-        public List<VolunteerAvailabilityIntervals> Intervals { get; set; }
+        [DataMember(Name="dayInterval")]
+        public DayInterval DayInterval { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,9 +58,9 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VolunteerAvailability {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Intervals: ").Append(Intervals).Append("\n");
+            sb.Append("class VolunteerAvailabilityIntervals {\n");
+            sb.Append("  DateInterval: ").Append(DateInterval).Append("\n");
+            sb.Append("  DayInterval: ").Append(DayInterval).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,29 +83,29 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((VolunteerAvailability)obj);
+            return obj.GetType() == GetType() && Equals((VolunteerAvailabilityIntervals)obj);
         }
 
         /// <summary>
-        /// Returns true if VolunteerAvailability instances are equal
+        /// Returns true if VolunteerAvailabilityIntervals instances are equal
         /// </summary>
-        /// <param name="other">Instance of VolunteerAvailability to be compared</param>
+        /// <param name="other">Instance of VolunteerAvailabilityIntervals to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VolunteerAvailability other)
+        public bool Equals(VolunteerAvailabilityIntervals other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Id == other.Id ||
-                    Id != null &&
-                    Id.Equals(other.Id)
+                    DateInterval == other.DateInterval ||
+                    DateInterval != null &&
+                    DateInterval.Equals(other.DateInterval)
                 ) && 
                 (
-                    Intervals == other.Intervals ||
-                    Intervals != null &&
-                    Intervals.SequenceEqual(other.Intervals)
+                    DayInterval == other.DayInterval ||
+                    DayInterval != null &&
+                    DayInterval.Equals(other.DayInterval)
                 );
         }
 
@@ -119,10 +119,10 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                    if (Intervals != null)
-                    hashCode = hashCode * 59 + Intervals.GetHashCode();
+                    if (DateInterval != null)
+                    hashCode = hashCode * 59 + DateInterval.GetHashCode();
+                    if (DayInterval != null)
+                    hashCode = hashCode * 59 + DayInterval.GetHashCode();
                 return hashCode;
             }
         }
@@ -130,12 +130,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(VolunteerAvailability left, VolunteerAvailability right)
+        public static bool operator ==(VolunteerAvailabilityIntervals left, VolunteerAvailabilityIntervals right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(VolunteerAvailability left, VolunteerAvailability right)
+        public static bool operator !=(VolunteerAvailabilityIntervals left, VolunteerAvailabilityIntervals right)
         {
             return !Equals(left, right);
         }
