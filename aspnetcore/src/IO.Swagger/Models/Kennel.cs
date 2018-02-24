@@ -55,6 +55,7 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets RoomId
         /// </summary>
+        [Required]
         [DataMember(Name="roomId")]
         public Guid? RoomId { get; set; }
         /// <summary>
@@ -84,6 +85,7 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets MaxOccupancy
         /// </summary>
+        [Required]
         [DataMember(Name="maxOccupancy")]
         public int? MaxOccupancy { get; set; }
 

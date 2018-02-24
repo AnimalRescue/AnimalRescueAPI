@@ -37,42 +37,19 @@ namespace IO.Swagger.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class Enclosure :  IEquatable<Enclosure>
+    public partial class AvailabilityBlocksIntervals :  IEquatable<AvailabilityBlocksIntervals>
     { 
         /// <summary>
-        /// Gets or Sets Size
+        /// Gets or Sets DateInterval
         /// </summary>
-        [DataMember(Name="size")]
-        public decimal? Size { get; set; }
-        /// <summary>
-        /// Gets or Sets UnitOfAreaMeasure
-        /// </summary>
-        public enum UnitOfAreaMeasureEnum
-        { 
-            /// <summary>
-            /// Enum SqFeetEnum for "sq. feet"
-            /// </summary>
-            [EnumMember(Value = "sq. feet")]
-            SqFeetEnum = 1,
-            
-            /// <summary>
-            /// Enum AcresEnum for "acres"
-            /// </summary>
-            [EnumMember(Value = "acres")]
-            AcresEnum = 2
-        }
+        [DataMember(Name="dateInterval")]
+        public DateInterval DateInterval { get; set; }
 
         /// <summary>
-        /// Gets or Sets UnitOfAreaMeasure
+        /// Gets or Sets DayInterval
         /// </summary>
-        [DataMember(Name="unitOfAreaMeasure")]
-        public UnitOfAreaMeasureEnum? UnitOfAreaMeasure { get; set; }
-
-        /// <summary>
-        /// Gets or Sets HeightInFeet
-        /// </summary>
-        [DataMember(Name="heightInFeet")]
-        public decimal? HeightInFeet { get; set; }
+        [DataMember(Name="dayInterval")]
+        public DayInterval DayInterval { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,10 +58,9 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Enclosure {\n");
-            sb.Append("  Size: ").Append(Size).Append("\n");
-            sb.Append("  UnitOfAreaMeasure: ").Append(UnitOfAreaMeasure).Append("\n");
-            sb.Append("  HeightInFeet: ").Append(HeightInFeet).Append("\n");
+            sb.Append("class AvailabilityBlocksIntervals {\n");
+            sb.Append("  DateInterval: ").Append(DateInterval).Append("\n");
+            sb.Append("  DayInterval: ").Append(DayInterval).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,34 +83,29 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((Enclosure)obj);
+            return obj.GetType() == GetType() && Equals((AvailabilityBlocksIntervals)obj);
         }
 
         /// <summary>
-        /// Returns true if Enclosure instances are equal
+        /// Returns true if AvailabilityBlocksIntervals instances are equal
         /// </summary>
-        /// <param name="other">Instance of Enclosure to be compared</param>
+        /// <param name="other">Instance of AvailabilityBlocksIntervals to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Enclosure other)
+        public bool Equals(AvailabilityBlocksIntervals other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Size == other.Size ||
-                    Size != null &&
-                    Size.Equals(other.Size)
+                    DateInterval == other.DateInterval ||
+                    DateInterval != null &&
+                    DateInterval.Equals(other.DateInterval)
                 ) && 
                 (
-                    UnitOfAreaMeasure == other.UnitOfAreaMeasure ||
-                    UnitOfAreaMeasure != null &&
-                    UnitOfAreaMeasure.Equals(other.UnitOfAreaMeasure)
-                ) && 
-                (
-                    HeightInFeet == other.HeightInFeet ||
-                    HeightInFeet != null &&
-                    HeightInFeet.Equals(other.HeightInFeet)
+                    DayInterval == other.DayInterval ||
+                    DayInterval != null &&
+                    DayInterval.Equals(other.DayInterval)
                 );
         }
 
@@ -148,12 +119,10 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Size != null)
-                    hashCode = hashCode * 59 + Size.GetHashCode();
-                    if (UnitOfAreaMeasure != null)
-                    hashCode = hashCode * 59 + UnitOfAreaMeasure.GetHashCode();
-                    if (HeightInFeet != null)
-                    hashCode = hashCode * 59 + HeightInFeet.GetHashCode();
+                    if (DateInterval != null)
+                    hashCode = hashCode * 59 + DateInterval.GetHashCode();
+                    if (DayInterval != null)
+                    hashCode = hashCode * 59 + DayInterval.GetHashCode();
                 return hashCode;
             }
         }
@@ -161,12 +130,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(Enclosure left, Enclosure right)
+        public static bool operator ==(AvailabilityBlocksIntervals left, AvailabilityBlocksIntervals right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Enclosure left, Enclosure right)
+        public static bool operator !=(AvailabilityBlocksIntervals left, AvailabilityBlocksIntervals right)
         {
             return !Equals(left, right);
         }

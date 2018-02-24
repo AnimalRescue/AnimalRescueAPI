@@ -49,18 +49,21 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets Timestamp
         /// </summary>
+        [Required]
         [DataMember(Name="timestamp")]
         public string Timestamp { get; set; }
 
         /// <summary>
         /// Gets or Sets StaffId
         /// </summary>
+        [Required]
         [DataMember(Name="staffId")]
         public Guid? StaffId { get; set; }
 
         /// <summary>
         /// Gets or Sets ParNumber
         /// </summary>
+        [Required]
         [DataMember(Name="parNumber")]
         public int? ParNumber { get; set; }
 

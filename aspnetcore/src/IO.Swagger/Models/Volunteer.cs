@@ -42,6 +42,7 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        [Required]
         [DataMember(Name="id")]
         public Guid? Id { get; set; }
 
@@ -60,14 +61,15 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets ContactId
         /// </summary>
+        [Required]
         [DataMember(Name="contactId")]
         public Contact ContactId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Donations
+        /// Gets or Sets Availablity
         /// </summary>
-        [DataMember(Name="donations")]
-        public List<Donation> Donations { get; set; }
+        [DataMember(Name="availablity")]
+        public AvailabilityBlocks Availablity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,7 +83,7 @@ namespace IO.Swagger.Models
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  ContactId: ").Append(ContactId).Append("\n");
-            sb.Append("  Donations: ").Append(Donations).Append("\n");
+            sb.Append("  Availablity: ").Append(Availablity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,9 +141,9 @@ namespace IO.Swagger.Models
                     ContactId.Equals(other.ContactId)
                 ) && 
                 (
-                    Donations == other.Donations ||
-                    Donations != null &&
-                    Donations.SequenceEqual(other.Donations)
+                    Availablity == other.Availablity ||
+                    Availablity != null &&
+                    Availablity.Equals(other.Availablity)
                 );
         }
 
@@ -163,8 +165,8 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + EndDate.GetHashCode();
                     if (ContactId != null)
                     hashCode = hashCode * 59 + ContactId.GetHashCode();
-                    if (Donations != null)
-                    hashCode = hashCode * 59 + Donations.GetHashCode();
+                    if (Availablity != null)
+                    hashCode = hashCode * 59 + Availablity.GetHashCode();
                 return hashCode;
             }
         }

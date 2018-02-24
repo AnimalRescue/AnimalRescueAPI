@@ -55,6 +55,7 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets BuildingId
         /// </summary>
+        [Required]
         [DataMember(Name="buildingId")]
         public Guid? BuildingId { get; set; }
 

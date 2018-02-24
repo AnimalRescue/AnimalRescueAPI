@@ -53,10 +53,11 @@ namespace IO.Swagger.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Addresses
+        /// Gets or Sets Address
         /// </summary>
-        [DataMember(Name="addresses")]
-        public Address Addresses { get; set; }
+        [Required]
+        [DataMember(Name="address")]
+        public Address Address { get; set; }
 
         /// <summary>
         /// Gets or Sets Buildings
@@ -80,7 +81,7 @@ namespace IO.Swagger.Models
             sb.Append("class Location {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Addresses: ").Append(Addresses).Append("\n");
+            sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  Buildings: ").Append(Buildings).Append("\n");
             sb.Append("  Enclosures: ").Append(Enclosures).Append("\n");
             sb.Append("}\n");
@@ -130,9 +131,9 @@ namespace IO.Swagger.Models
                     Name.Equals(other.Name)
                 ) && 
                 (
-                    Addresses == other.Addresses ||
-                    Addresses != null &&
-                    Addresses.Equals(other.Addresses)
+                    Address == other.Address ||
+                    Address != null &&
+                    Address.Equals(other.Address)
                 ) && 
                 (
                     Buildings == other.Buildings ||
@@ -160,8 +161,8 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + Id.GetHashCode();
                     if (Name != null)
                     hashCode = hashCode * 59 + Name.GetHashCode();
-                    if (Addresses != null)
-                    hashCode = hashCode * 59 + Addresses.GetHashCode();
+                    if (Address != null)
+                    hashCode = hashCode * 59 + Address.GetHashCode();
                     if (Buildings != null)
                     hashCode = hashCode * 59 + Buildings.GetHashCode();
                     if (Enclosures != null)

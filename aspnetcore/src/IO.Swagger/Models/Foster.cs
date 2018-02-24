@@ -42,6 +42,7 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
+        [Required]
         [DataMember(Name="id")]
         public Guid? Id { get; set; }
 
@@ -60,12 +61,14 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets ContactId
         /// </summary>
+        [Required]
         [DataMember(Name="contactId")]
         public Contact ContactId { get; set; }
 
         /// <summary>
         /// Gets or Sets LocationId
         /// </summary>
+        [Required]
         [DataMember(Name="locationId")]
         public Location LocationId { get; set; }
 
