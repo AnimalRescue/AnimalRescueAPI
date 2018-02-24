@@ -93,7 +93,7 @@ namespace IO.Swagger.Models
         /// Gets or Sets Animals
         /// </summary>
         [DataMember(Name="animals")]
-        public BaseAnimalInfo Animals { get; set; }
+        public List<BaseAnimalInfo> Animals { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -173,7 +173,7 @@ namespace IO.Swagger.Models
                 (
                     Animals == other.Animals ||
                     Animals != null &&
-                    Animals.Equals(other.Animals)
+                    Animals.SequenceEqual(other.Animals)
                 );
         }
 

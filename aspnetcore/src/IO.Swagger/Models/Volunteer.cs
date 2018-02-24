@@ -69,7 +69,7 @@ namespace IO.Swagger.Models
         /// Gets or Sets Availablity
         /// </summary>
         [DataMember(Name="availablity")]
-        public AvailabilityBlocks Availablity { get; set; }
+        public List<AvailabilityBlocks> Availablity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -143,7 +143,7 @@ namespace IO.Swagger.Models
                 (
                     Availablity == other.Availablity ||
                     Availablity != null &&
-                    Availablity.Equals(other.Availablity)
+                    Availablity.SequenceEqual(other.Availablity)
                 );
         }
 
