@@ -445,9 +445,10 @@ namespace IO.Swagger.Controllers
         /// searches contacts
         /// </summary>
         /// <remarks>With no parameters, returns all contacts. Allows filters. </remarks>
-        /// <param name="searchString">pass an optional search string for looking up contacts </param>
-        /// <param name="skip">number of records to skip for pagination</param>
-        /// <param name="limit">maximum number of records to return</param>
+        /// <param name="searchString">pass an optional search string for looking up Fosters</param>
+        /// <param name="limit">Limits the number of items on a page</param>
+        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
+        /// <param name="fromDate">Specifies the first intake date to return</param>
         /// <response code="200">search results matching specified criteria</response>
         /// <response code="400">bad input parameter</response>
         [HttpGet]
@@ -456,7 +457,7 @@ namespace IO.Swagger.Controllers
         [SwaggerOperation("SearchContacts")]
         [SwaggerResponse(200, typeof(List<Contact>), "search results matching specified criteria")]
         [SwaggerResponse(400, typeof(List<Contact>), "bad input parameter")]
-        public virtual IActionResult SearchContacts([FromQuery]string searchString, [FromQuery]int? skip, [FromQuery]int? limit)
+        public virtual IActionResult SearchContacts([FromQuery]string searchString, [FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]DateTime? fromDate)
         { 
             string exampleJson = null;
             
@@ -504,9 +505,10 @@ namespace IO.Swagger.Controllers
         /// searches animal rescue doners
         /// </summary>
         /// <remarks>With no parameters, returns all Donors. Allows filters. </remarks>
-        /// <param name="searchString">pass an optional search string for looking up Donors </param>
-        /// <param name="skip">number of records to skip for pagination</param>
-        /// <param name="limit">maximum number of records to return</param>
+        /// <param name="searchString">pass an optional search string for looking up Fosters</param>
+        /// <param name="limit">Limits the number of items on a page</param>
+        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
+        /// <param name="fromDate">Specifies the first intake date to return</param>
         /// <response code="200">search results matching specified criteria</response>
         /// <response code="400">bad input parameter</response>
         [HttpGet]
@@ -515,7 +517,7 @@ namespace IO.Swagger.Controllers
         [SwaggerOperation("SearchDonors")]
         [SwaggerResponse(200, typeof(List<Donor>), "search results matching specified criteria")]
         [SwaggerResponse(400, typeof(List<Donor>), "bad input parameter")]
-        public virtual IActionResult SearchDonors([FromQuery]string searchString, [FromQuery]int? skip, [FromQuery]int? limit)
+        public virtual IActionResult SearchDonors([FromQuery]string searchString, [FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]DateTime? fromDate)
         { 
             string exampleJson = null;
             
@@ -529,9 +531,10 @@ namespace IO.Swagger.Controllers
         /// searches animal fosters
         /// </summary>
         /// <remarks>With no parameters, returns all registered Fosters. Allows filters. </remarks>
-        /// <param name="searchString">pass an optional search string for looking up Fosters </param>
-        /// <param name="skip">number of records to skip for pagination</param>
-        /// <param name="limit">maximum number of records to return</param>
+        /// <param name="searchString">pass an optional search string for looking up Fosters</param>
+        /// <param name="limit">Limits the number of items on a page</param>
+        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
+        /// <param name="fromDate">Specifies the first intake date to return</param>
         /// <response code="200">search results matching specified criteria</response>
         /// <response code="400">bad input parameter</response>
         [HttpGet]
@@ -540,7 +543,7 @@ namespace IO.Swagger.Controllers
         [SwaggerOperation("SearchFosters")]
         [SwaggerResponse(200, typeof(List<Foster>), "search results matching specified criteria")]
         [SwaggerResponse(400, typeof(List<Foster>), "bad input parameter")]
-        public virtual IActionResult SearchFosters([FromQuery]string searchString, [FromQuery]int? skip, [FromQuery]int? limit)
+        public virtual IActionResult SearchFosters([FromQuery]string searchString, [FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]DateTime? fromDate)
         { 
             string exampleJson = null;
             
@@ -578,7 +581,7 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// returns all kennels in a Room
         /// </summary>
-        /// <remarks>With no parameters, returns all berths at the Rescue </remarks>
+        /// <remarks>With no parameters, returns all kennels for all locations</remarks>
         /// <param name="limit">Limits the number of items on a page</param>
         /// <param name="offset">Specifies the page number of the artists to be displayed</param>
         /// <response code="200">ok</response>
