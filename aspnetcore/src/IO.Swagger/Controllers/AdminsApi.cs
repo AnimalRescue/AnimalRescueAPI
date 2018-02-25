@@ -147,6 +147,23 @@ namespace IO.Swagger.Controllers
         }
 
         /// <summary>
+        /// creates new Volunteer with a unique id
+        /// </summary>
+        /// <remarks>creates a new, unique Volunteer</remarks>
+        /// <param name="createVolunteer">new Volunteer object</param>
+        /// <response code="200">ok</response>
+        /// <response code="400">invalid content on Volunteer info</response>
+        /// <response code="401">unauthorized request</response>
+        [HttpPost]
+        [Route("/jgartee/AnimalRescue/1.0.0/volunteer")]
+        [ValidateModelState]
+        [SwaggerOperation("CreateVolunteer")]
+        public virtual void CreateVolunteer([FromBody]Volunteer createVolunteer)
+        { 
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// deletes an existing Cat by id
         /// </summary>
         /// <remarks>deletes a cat</remarks>
@@ -701,6 +718,32 @@ namespace IO.Swagger.Controllers
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<List<Room>>(exampleJson)
             : default(List<Room>);
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// searches volunteers
+        /// </summary>
+        /// <remarks>With no parameters, returns all registered Volunteers. Allows filters. </remarks>
+        /// <param name="searchString">pass an optional search string for looking up Fosters</param>
+        /// <param name="limit">Limits the number of items on a page</param>
+        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
+        /// <param name="fromDate">Specifies the first intake date to return</param>
+        /// <response code="200">search results matching specified criteria</response>
+        /// <response code="400">bad input parameter</response>
+        [HttpGet]
+        [Route("/jgartee/AnimalRescue/1.0.0/volunteer")]
+        [ValidateModelState]
+        [SwaggerOperation("SearchVolunteers")]
+        [SwaggerResponse(200, typeof(List<Volunteer>), "search results matching specified criteria")]
+        [SwaggerResponse(400, typeof(List<Volunteer>), "bad input parameter")]
+        public virtual IActionResult SearchVolunteers([FromQuery]string searchString, [FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]DateTime? fromDate)
+        { 
+            string exampleJson = null;
+            
+            var example = exampleJson != null
+            ? JsonConvert.DeserializeObject<List<Volunteer>>(exampleJson)
+            : default(List<Volunteer>);
             return new ObjectResult(example);
         }
 
