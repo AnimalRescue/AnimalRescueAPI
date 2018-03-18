@@ -1,6 +1,6 @@
 # IO.Swagger - ASP.NET Core 1.0 Server
 
-This is a simple API
+AnimalRescue CQRS API
 
 ## Run
 
