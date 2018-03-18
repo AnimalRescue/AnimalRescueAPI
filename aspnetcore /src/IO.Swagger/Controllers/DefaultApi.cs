@@ -66,6 +66,8 @@ namespace IO.Swagger.Controllers
         /// <param name="limit">Limits the number of items on a page</param>
         /// <param name="offset">Specifies the page number of the artists to be displayed</param>
         /// <param name="fromDate">Specifies the first intake date to return</param>
+        /// <param name="status">Adoption Status of Pending, Available, Medical, Hold</param>
+        /// <param name="location">Specifies a search string found int Location, Building, Room, Kennel, or Enclosure name</param>
         /// <param name="name">Specifies a matching pattern for the name</param>
         /// <response code="200">ok</response>
         /// <response code="400">bad request</response>
@@ -77,7 +79,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(200, typeof(List<IntakeList>), "ok")]
         [SwaggerResponse(400, typeof(List<IntakeList>), "bad request")]
         [SwaggerResponse(401, typeof(List<IntakeList>), "unauthorized request")]
-        public virtual IActionResult GetFilteredIntakes([FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]DateTime? fromDate, [FromQuery]DateTime? name)
+        public virtual IActionResult GetFilteredIntakes([FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]DateTime? fromDate, [FromQuery]string status, [FromQuery]string location, [FromQuery]DateTime? name)
         { 
             string exampleJson = null;
             
