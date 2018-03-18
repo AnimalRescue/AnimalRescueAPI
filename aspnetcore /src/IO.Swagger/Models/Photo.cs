@@ -37,56 +37,25 @@ namespace IO.Swagger.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class Kennel :  IEquatable<Kennel>
+    public partial class Photo :  IEquatable<Photo>
     { 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        [Required]
         [DataMember(Name="id")]
-        public KennelId Id { get; set; }
+        public PhotoId Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Gets or Sets Title
         /// </summary>
-        [DataMember(Name="name")]
-        public string Name { get; set; }
-        /// <summary>
-        /// Gets or Sets Species
-        /// </summary>
-        public enum AnimalType
-        { 
-            /// <summary>
-            /// Enum CatEnum for "Cat"
-            /// </summary>
-            [EnumMember(Value = "Cat")]
-            CatEnum = 1,
-            
-            /// <summary>
-            /// Enum DogEnum for "Dog"
-            /// </summary>
-            [EnumMember(Value = "Dog")]
-            DogEnum = 2
-        }
+        [DataMember(Name="title")]
+        public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets Species
+        /// Gets or Sets Image
         /// </summary>
-        [DataMember(Name="species")]
-        public AnimalType? Species { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MaxOccupancy
-        /// </summary>
-        [Required]
-        [DataMember(Name="maxOccupancy")]
-        public int? MaxOccupancy { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Animals
-        /// </summary>
-        [DataMember(Name="animals")]
-        public List<AnimalId> Animals { get; set; }
+        [DataMember(Name="image")]
+        public string Image { get; set; }
 
         /// <summary>
         /// Gets or Sets Notes
@@ -101,12 +70,10 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Kennel {\n");
+            sb.Append("class Photo {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Species: ").Append(Species).Append("\n");
-            sb.Append("  MaxOccupancy: ").Append(MaxOccupancy).Append("\n");
-            sb.Append("  Animals: ").Append(Animals).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -130,15 +97,15 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((Kennel)obj);
+            return obj.GetType() == GetType() && Equals((Photo)obj);
         }
 
         /// <summary>
-        /// Returns true if Kennel instances are equal
+        /// Returns true if Photo instances are equal
         /// </summary>
-        /// <param name="other">Instance of Kennel to be compared</param>
+        /// <param name="other">Instance of Photo to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Kennel other)
+        public bool Equals(Photo other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -150,24 +117,14 @@ namespace IO.Swagger.Models
                     Id.Equals(other.Id)
                 ) && 
                 (
-                    Name == other.Name ||
-                    Name != null &&
-                    Name.Equals(other.Name)
+                    Title == other.Title ||
+                    Title != null &&
+                    Title.Equals(other.Title)
                 ) && 
                 (
-                    Species == other.Species ||
-                    Species != null &&
-                    Species.Equals(other.Species)
-                ) && 
-                (
-                    MaxOccupancy == other.MaxOccupancy ||
-                    MaxOccupancy != null &&
-                    MaxOccupancy.Equals(other.MaxOccupancy)
-                ) && 
-                (
-                    Animals == other.Animals ||
-                    Animals != null &&
-                    Animals.SequenceEqual(other.Animals)
+                    Image == other.Image ||
+                    Image != null &&
+                    Image.Equals(other.Image)
                 ) && 
                 (
                     Notes == other.Notes ||
@@ -188,14 +145,10 @@ namespace IO.Swagger.Models
                 // Suitable nullity checks etc, of course :)
                     if (Id != null)
                     hashCode = hashCode * 59 + Id.GetHashCode();
-                    if (Name != null)
-                    hashCode = hashCode * 59 + Name.GetHashCode();
-                    if (Species != null)
-                    hashCode = hashCode * 59 + Species.GetHashCode();
-                    if (MaxOccupancy != null)
-                    hashCode = hashCode * 59 + MaxOccupancy.GetHashCode();
-                    if (Animals != null)
-                    hashCode = hashCode * 59 + Animals.GetHashCode();
+                    if (Title != null)
+                    hashCode = hashCode * 59 + Title.GetHashCode();
+                    if (Image != null)
+                    hashCode = hashCode * 59 + Image.GetHashCode();
                     if (Notes != null)
                     hashCode = hashCode * 59 + Notes.GetHashCode();
                 return hashCode;
@@ -205,12 +158,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(Kennel left, Kennel right)
+        public static bool operator ==(Photo left, Photo right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Kennel left, Kennel right)
+        public static bool operator !=(Photo left, Photo right)
         {
             return !Equals(left, right);
         }
