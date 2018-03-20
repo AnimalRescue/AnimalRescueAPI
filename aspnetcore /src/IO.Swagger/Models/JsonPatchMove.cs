@@ -44,10 +44,10 @@ namespace IO.Swagger.Models
         public enum OpEnum
         { 
             /// <summary>
-            /// Enum CopyEnum for "copy"
+            /// Enum MoveEnum for "move"
             /// </summary>
-            [EnumMember(Value = "copy")]
-            CopyEnum = 1
+            [EnumMember(Value = "move")]
+            MoveEnum = 1
         }
 
         /// <summary>

@@ -6,7 +6,7 @@
     </PropertyGroup>
     <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
     <PropertyGroup Label="Globals">
-        <ProjectGuid>{C2D14BC4-8BA4-409D-9364-1F5F64123475}</ProjectGuid>
+        <ProjectGuid>{314C9713-ADD1-4F5C-8F69-435602724F07}</ProjectGuid>
         <RootNamespace>IO.Swagger</RootNamespace>
         <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
         <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
