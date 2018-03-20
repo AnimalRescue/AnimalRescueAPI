@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
                 global.json = global.json
         EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "IO.Swagger", "src\IO.Swagger\IO.Swagger.xproj", "{0A091C2B-024D-411C-9ED2-54524D910D3E}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "IO.Swagger", "src\IO.Swagger\IO.Swagger.xproj", "{C2D14BC4-8BA4-409D-9364-1F5F64123475}"
 EndProject
 Global
         GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,10 @@ Global
                 Release|Any CPU = Release|Any CPU
         EndGlobalSection
         GlobalSection(ProjectConfigurationPlatforms) = postSolution
-                {0A091C2B-024D-411C-9ED2-54524D910D3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-                {0A091C2B-024D-411C-9ED2-54524D910D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-                {0A091C2B-024D-411C-9ED2-54524D910D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-                {0A091C2B-024D-411C-9ED2-54524D910D3E}.Release|Any CPU.Build.0 = Release|Any CPU
+                {C2D14BC4-8BA4-409D-9364-1F5F64123475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+                {C2D14BC4-8BA4-409D-9364-1F5F64123475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+                {C2D14BC4-8BA4-409D-9364-1F5F64123475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+                {C2D14BC4-8BA4-409D-9364-1F5F64123475}.Release|Any CPU.Build.0 = Release|Any CPU
         EndGlobalSection
         GlobalSection(SolutionProperties) = preSolution
                 HideSolutionNode = FALSE

@@ -34,11 +34,36 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// 
+    /// remove operation. Only a path is specified.
     /// </summary>
     [DataContract]
-    public partial class JsonPatch : List<>,  IEquatable<JsonPatch>
-    { 
+    public partial class JsonPatchRemove :  IEquatable<JsonPatchRemove>
+    {         /// <summary>
+        /// Gets or Sets Op
+        /// </summary>
+        public enum OpEnum
+        { 
+            /// <summary>
+            /// Enum RemoveEnum for "remove"
+            /// </summary>
+            [EnumMember(Value = "remove")]
+            RemoveEnum = 1
+        }
+
+        /// <summary>
+        /// Gets or Sets Op
+        /// </summary>
+        [Required]
+        [DataMember(Name="op")]
+        public OpEnum? Op { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Path
+        /// </summary>
+        [Required]
+        [DataMember(Name="path")]
+        public JsonPointer Path { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -46,7 +71,9 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class JsonPatch {\n");
+            sb.Append("class JsonPatchRemove {\n");
+            sb.Append("  Op: ").Append(Op).Append("\n");
+            sb.Append("  Path: ").Append(Path).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -55,7 +82,7 @@ namespace IO.Swagger.Models
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public  new string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -69,20 +96,30 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((JsonPatch)obj);
+            return obj.GetType() == GetType() && Equals((JsonPatchRemove)obj);
         }
 
         /// <summary>
-        /// Returns true if JsonPatch instances are equal
+        /// Returns true if JsonPatchRemove instances are equal
         /// </summary>
-        /// <param name="other">Instance of JsonPatch to be compared</param>
+        /// <param name="other">Instance of JsonPatchRemove to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(JsonPatch other)
+        public bool Equals(JsonPatchRemove other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return false;
+            return 
+                (
+                    Op == other.Op ||
+                    Op != null &&
+                    Op.Equals(other.Op)
+                ) && 
+                (
+                    Path == other.Path ||
+                    Path != null &&
+                    Path.Equals(other.Path)
+                );
         }
 
         /// <summary>
@@ -95,6 +132,10 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (Op != null)
+                    hashCode = hashCode * 59 + Op.GetHashCode();
+                    if (Path != null)
+                    hashCode = hashCode * 59 + Path.GetHashCode();
                 return hashCode;
             }
         }
@@ -102,12 +143,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(JsonPatch left, JsonPatch right)
+        public static bool operator ==(JsonPatchRemove left, JsonPatchRemove right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(JsonPatch left, JsonPatch right)
+        public static bool operator !=(JsonPatchRemove left, JsonPatchRemove right)
         {
             return !Equals(left, right);
         }
