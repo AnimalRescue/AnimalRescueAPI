@@ -45,27 +45,15 @@ namespace IO.Swagger.Models
             OwnerSurrenderEnum = 1,
             
             /// <summary>
-            /// Enum FailedAdoptionEnum for "Failed Adoption"
+            /// Enum StrayEnum for "Stray"
             /// </summary>
-            [EnumMember(Value = "Failed Adoption")]
-            FailedAdoptionEnum = 2,
+            [EnumMember(Value = "Stray")]
+            StrayEnum = 2,
             
             /// <summary>
-            /// Enum StraySurrenderEnum for "Stray Surrender"
+            /// Enum TransferEnum for "Transfer"
             /// </summary>
-            [EnumMember(Value = "Stray Surrender")]
-            StraySurrenderEnum = 3,
-            
-            /// <summary>
-            /// Enum AbandondedAtRescueEnum for "Abandonded at Rescue"
-            /// </summary>
-            [EnumMember(Value = "Abandonded at Rescue")]
-            AbandondedAtRescueEnum = 4,
-            
-            /// <summary>
-            /// Enum ShelterTransferEnum for "Shelter Transfer"
-            /// </summary>
-            [EnumMember(Value = "Shelter Transfer")]
-            ShelterTransferEnum = 5
+            [EnumMember(Value = "Transfer")]
+            TransferEnum = 3
         }
 }

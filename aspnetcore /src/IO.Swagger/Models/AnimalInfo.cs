@@ -49,6 +49,7 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets ParNumber
         /// </summary>
+        [Required]
         [DataMember(Name="parNumber")]
         public ParNumber ParNumber { get; set; }
 
@@ -120,22 +121,9 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets AnimalType
         /// </summary>
+        [Required]
         [DataMember(Name="animalType")]
         public AnimalType? AnimalType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Breed
-        /// </summary>
-        [Required]
-        [DataMember(Name="breed")]
-        public AnimalBreeds Breed { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Color
-        /// </summary>
-        [Required]
-        [DataMember(Name="color")]
-        public AnimalColor Color { get; set; }
         /// <summary>
         /// Gets or Sets Gender
         /// </summary>
@@ -242,8 +230,6 @@ namespace IO.Swagger.Models
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  AnimalType: ").Append(AnimalType).Append("\n");
-            sb.Append("  Breed: ").Append(Breed).Append("\n");
-            sb.Append("  Color: ").Append(Color).Append("\n");
             sb.Append("  Gender: ").Append(Gender).Append("\n");
             sb.Append("  AgeIsEstimated: ").Append(AgeIsEstimated).Append("\n");
             sb.Append("  Age: ").Append(Age).Append("\n");
@@ -315,16 +301,6 @@ namespace IO.Swagger.Models
                     AnimalType == other.AnimalType ||
                     AnimalType != null &&
                     AnimalType.Equals(other.AnimalType)
-                ) && 
-                (
-                    Breed == other.Breed ||
-                    Breed != null &&
-                    Breed.Equals(other.Breed)
-                ) && 
-                (
-                    Color == other.Color ||
-                    Color != null &&
-                    Color.Equals(other.Color)
                 ) && 
                 (
                     Gender == other.Gender ||
@@ -403,10 +379,6 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + Status.GetHashCode();
                     if (AnimalType != null)
                     hashCode = hashCode * 59 + AnimalType.GetHashCode();
-                    if (Breed != null)
-                    hashCode = hashCode * 59 + Breed.GetHashCode();
-                    if (Color != null)
-                    hashCode = hashCode * 59 + Color.GetHashCode();
                     if (Gender != null)
                     hashCode = hashCode * 59 + Gender.GetHashCode();
                     if (AgeIsEstimated != null)
