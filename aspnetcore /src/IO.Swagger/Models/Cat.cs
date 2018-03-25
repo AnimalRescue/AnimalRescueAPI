@@ -47,13 +47,6 @@ namespace IO.Swagger.Models
         public AnimalInfo Animal { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Cat
-        /// </summary>
-        [Required]
-        [DataMember(Name="cat")]
-        public CatInfo _Cat { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,7 +55,6 @@ namespace IO.Swagger.Models
             var sb = new StringBuilder();
             sb.Append("class Cat {\n");
             sb.Append("  Animal: ").Append(Animal).Append("\n");
-            sb.Append("  _Cat: ").Append(_Cat).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -103,11 +95,6 @@ namespace IO.Swagger.Models
                     Animal == other.Animal ||
                     Animal != null &&
                     Animal.Equals(other.Animal)
-                ) && 
-                (
-                    _Cat == other._Cat ||
-                    _Cat != null &&
-                    _Cat.Equals(other._Cat)
                 );
         }
 
@@ -123,8 +110,6 @@ namespace IO.Swagger.Models
                 // Suitable nullity checks etc, of course :)
                     if (Animal != null)
                     hashCode = hashCode * 59 + Animal.GetHashCode();
-                    if (_Cat != null)
-                    hashCode = hashCode * 59 + _Cat.GetHashCode();
                 return hashCode;
             }
         }
