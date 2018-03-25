@@ -100,7 +100,7 @@ namespace IO.Swagger.Models
         /// </summary>
         [Required]
         [DataMember(Name="supportingData")]
-        public MedicalEventSupportingData SupportingData { get; set; }
+        public SupportingMedicalDataId SupportingData { get; set; }
 
         /// <summary>
         /// Gets or Sets Notes
