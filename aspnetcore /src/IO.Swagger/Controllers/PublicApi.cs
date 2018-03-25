@@ -95,7 +95,7 @@ namespace IO.Swagger.Controllers
         [Route("/jgartee/AnimalRescueCQRS/1.0.0/intake/{id}")]
         [ValidateModelState]
         [SwaggerOperation("PatchIntakeById")]
-        public virtual void PatchIntakeById([FromRoute]Guid? id, [FromBody]JsonPatch patchIntake)
+        public virtual void PatchIntakeById([FromRoute]Guid? id, [FromBody]Intake patchIntake)
         { 
             throw new NotImplementedException();
         }

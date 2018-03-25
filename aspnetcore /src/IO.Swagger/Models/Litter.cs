@@ -34,35 +34,43 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// replace operation. Value can be any JSON value.
+    /// 
     /// </summary>
     [DataContract]
-    public partial class JsonPatchReplace :  IEquatable<JsonPatchReplace>
-    {         /// <summary>
-        /// Gets or Sets Op
-        /// </summary>
-        public enum OpEnum
-        { 
-            /// <summary>
-            /// Enum ReplaceEnum for "replace"
-            /// </summary>
-            [EnumMember(Value = "replace")]
-            ReplaceEnum = 1
-        }
-
+    public partial class Litter :  IEquatable<Litter>
+    { 
         /// <summary>
-        /// Gets or Sets Op
+        /// Gets or Sets Id
         /// </summary>
         [Required]
-        [DataMember(Name="op")]
-        public OpEnum? Op { get; set; }
+        [DataMember(Name="id")]
+        public LitterId Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Path
+        /// Gets or Sets IsMotherIncluded
         /// </summary>
         [Required]
-        [DataMember(Name="path")]
-        public JsonPointer Path { get; set; }
+        [DataMember(Name="isMotherIncluded")]
+        public bool? IsMotherIncluded { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Mother
+        /// </summary>
+        [DataMember(Name="mother")]
+        public AnimalId Mother { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Littermates
+        /// </summary>
+        [Required]
+        [DataMember(Name="littermates")]
+        public List<AnimalId> Littermates { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Notes
+        /// </summary>
+        [DataMember(Name="notes")]
+        public List<NoteId> Notes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,9 +79,12 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class JsonPatchReplace {\n");
-            sb.Append("  Op: ").Append(Op).Append("\n");
-            sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("class Litter {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  IsMotherIncluded: ").Append(IsMotherIncluded).Append("\n");
+            sb.Append("  Mother: ").Append(Mother).Append("\n");
+            sb.Append("  Littermates: ").Append(Littermates).Append("\n");
+            sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,29 +107,44 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((JsonPatchReplace)obj);
+            return obj.GetType() == GetType() && Equals((Litter)obj);
         }
 
         /// <summary>
-        /// Returns true if JsonPatchReplace instances are equal
+        /// Returns true if Litter instances are equal
         /// </summary>
-        /// <param name="other">Instance of JsonPatchReplace to be compared</param>
+        /// <param name="other">Instance of Litter to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(JsonPatchReplace other)
+        public bool Equals(Litter other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Op == other.Op ||
-                    Op != null &&
-                    Op.Equals(other.Op)
+                    Id == other.Id ||
+                    Id != null &&
+                    Id.Equals(other.Id)
                 ) && 
                 (
-                    Path == other.Path ||
-                    Path != null &&
-                    Path.Equals(other.Path)
+                    IsMotherIncluded == other.IsMotherIncluded ||
+                    IsMotherIncluded != null &&
+                    IsMotherIncluded.Equals(other.IsMotherIncluded)
+                ) && 
+                (
+                    Mother == other.Mother ||
+                    Mother != null &&
+                    Mother.Equals(other.Mother)
+                ) && 
+                (
+                    Littermates == other.Littermates ||
+                    Littermates != null &&
+                    Littermates.SequenceEqual(other.Littermates)
+                ) && 
+                (
+                    Notes == other.Notes ||
+                    Notes != null &&
+                    Notes.SequenceEqual(other.Notes)
                 );
         }
 
@@ -132,10 +158,16 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Op != null)
-                    hashCode = hashCode * 59 + Op.GetHashCode();
-                    if (Path != null)
-                    hashCode = hashCode * 59 + Path.GetHashCode();
+                    if (Id != null)
+                    hashCode = hashCode * 59 + Id.GetHashCode();
+                    if (IsMotherIncluded != null)
+                    hashCode = hashCode * 59 + IsMotherIncluded.GetHashCode();
+                    if (Mother != null)
+                    hashCode = hashCode * 59 + Mother.GetHashCode();
+                    if (Littermates != null)
+                    hashCode = hashCode * 59 + Littermates.GetHashCode();
+                    if (Notes != null)
+                    hashCode = hashCode * 59 + Notes.GetHashCode();
                 return hashCode;
             }
         }
@@ -143,12 +175,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(JsonPatchReplace left, JsonPatchReplace right)
+        public static bool operator ==(Litter left, Litter right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(JsonPatchReplace left, JsonPatchReplace right)
+        public static bool operator !=(Litter left, Litter right)
         {
             return !Equals(left, right);
         }

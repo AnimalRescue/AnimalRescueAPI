@@ -34,35 +34,23 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// replace operation. Value can be any JSON value.
+    /// 
     /// </summary>
     [DataContract]
-    public partial class JsonPatchReplace :  IEquatable<JsonPatchReplace>
-    {         /// <summary>
-        /// Gets or Sets Op
-        /// </summary>
-        public enum OpEnum
-        { 
-            /// <summary>
-            /// Enum ReplaceEnum for "replace"
-            /// </summary>
-            [EnumMember(Value = "replace")]
-            ReplaceEnum = 1
-        }
-
+    public partial class MedicalHistory :  IEquatable<MedicalHistory>
+    { 
         /// <summary>
-        /// Gets or Sets Op
+        /// Gets or Sets Id
         /// </summary>
         [Required]
-        [DataMember(Name="op")]
-        public OpEnum? Op { get; set; }
+        [DataMember(Name="id")]
+        public MedicalHistoryId Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Path
+        /// Gets or Sets IsolationDates
         /// </summary>
-        [Required]
-        [DataMember(Name="path")]
-        public JsonPointer Path { get; set; }
+        [DataMember(Name="isolationDates")]
+        public List<DateRange> IsolationDates { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,9 +59,9 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class JsonPatchReplace {\n");
-            sb.Append("  Op: ").Append(Op).Append("\n");
-            sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("class MedicalHistory {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  IsolationDates: ").Append(IsolationDates).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,29 +84,29 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((JsonPatchReplace)obj);
+            return obj.GetType() == GetType() && Equals((MedicalHistory)obj);
         }
 
         /// <summary>
-        /// Returns true if JsonPatchReplace instances are equal
+        /// Returns true if MedicalHistory instances are equal
         /// </summary>
-        /// <param name="other">Instance of JsonPatchReplace to be compared</param>
+        /// <param name="other">Instance of MedicalHistory to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(JsonPatchReplace other)
+        public bool Equals(MedicalHistory other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Op == other.Op ||
-                    Op != null &&
-                    Op.Equals(other.Op)
+                    Id == other.Id ||
+                    Id != null &&
+                    Id.Equals(other.Id)
                 ) && 
                 (
-                    Path == other.Path ||
-                    Path != null &&
-                    Path.Equals(other.Path)
+                    IsolationDates == other.IsolationDates ||
+                    IsolationDates != null &&
+                    IsolationDates.SequenceEqual(other.IsolationDates)
                 );
         }
 
@@ -132,10 +120,10 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Op != null)
-                    hashCode = hashCode * 59 + Op.GetHashCode();
-                    if (Path != null)
-                    hashCode = hashCode * 59 + Path.GetHashCode();
+                    if (Id != null)
+                    hashCode = hashCode * 59 + Id.GetHashCode();
+                    if (IsolationDates != null)
+                    hashCode = hashCode * 59 + IsolationDates.GetHashCode();
                 return hashCode;
             }
         }
@@ -143,12 +131,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(JsonPatchReplace left, JsonPatchReplace right)
+        public static bool operator ==(MedicalHistory left, MedicalHistory right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(JsonPatchReplace left, JsonPatchReplace right)
+        public static bool operator !=(MedicalHistory left, MedicalHistory right)
         {
             return !Equals(left, right);
         }

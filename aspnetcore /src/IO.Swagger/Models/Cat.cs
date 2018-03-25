@@ -34,35 +34,24 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// replace operation. Value can be any JSON value.
+    /// 
     /// </summary>
     [DataContract]
-    public partial class JsonPatchReplace :  IEquatable<JsonPatchReplace>
-    {         /// <summary>
-        /// Gets or Sets Op
-        /// </summary>
-        public enum OpEnum
-        { 
-            /// <summary>
-            /// Enum ReplaceEnum for "replace"
-            /// </summary>
-            [EnumMember(Value = "replace")]
-            ReplaceEnum = 1
-        }
-
+    public partial class Cat :  IEquatable<Cat>
+    { 
         /// <summary>
-        /// Gets or Sets Op
+        /// Gets or Sets Animal
         /// </summary>
         [Required]
-        [DataMember(Name="op")]
-        public OpEnum? Op { get; set; }
+        [DataMember(Name="animal")]
+        public AnimalInfo Animal { get; set; }
 
         /// <summary>
-        /// Gets or Sets Path
+        /// Gets or Sets _Cat
         /// </summary>
         [Required]
-        [DataMember(Name="path")]
-        public JsonPointer Path { get; set; }
+        [DataMember(Name="cat")]
+        public CatInfo _Cat { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,9 +60,9 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class JsonPatchReplace {\n");
-            sb.Append("  Op: ").Append(Op).Append("\n");
-            sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("class Cat {\n");
+            sb.Append("  Animal: ").Append(Animal).Append("\n");
+            sb.Append("  _Cat: ").Append(_Cat).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,29 +85,29 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((JsonPatchReplace)obj);
+            return obj.GetType() == GetType() && Equals((Cat)obj);
         }
 
         /// <summary>
-        /// Returns true if JsonPatchReplace instances are equal
+        /// Returns true if Cat instances are equal
         /// </summary>
-        /// <param name="other">Instance of JsonPatchReplace to be compared</param>
+        /// <param name="other">Instance of Cat to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(JsonPatchReplace other)
+        public bool Equals(Cat other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Op == other.Op ||
-                    Op != null &&
-                    Op.Equals(other.Op)
+                    Animal == other.Animal ||
+                    Animal != null &&
+                    Animal.Equals(other.Animal)
                 ) && 
                 (
-                    Path == other.Path ||
-                    Path != null &&
-                    Path.Equals(other.Path)
+                    _Cat == other._Cat ||
+                    _Cat != null &&
+                    _Cat.Equals(other._Cat)
                 );
         }
 
@@ -132,10 +121,10 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Op != null)
-                    hashCode = hashCode * 59 + Op.GetHashCode();
-                    if (Path != null)
-                    hashCode = hashCode * 59 + Path.GetHashCode();
+                    if (Animal != null)
+                    hashCode = hashCode * 59 + Animal.GetHashCode();
+                    if (_Cat != null)
+                    hashCode = hashCode * 59 + _Cat.GetHashCode();
                 return hashCode;
             }
         }
@@ -143,12 +132,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(JsonPatchReplace left, JsonPatchReplace right)
+        public static bool operator ==(Cat left, Cat right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(JsonPatchReplace left, JsonPatchReplace right)
+        public static bool operator !=(Cat left, Cat right)
         {
             return !Equals(left, right);
         }

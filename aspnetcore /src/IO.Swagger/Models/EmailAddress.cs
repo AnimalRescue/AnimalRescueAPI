@@ -34,35 +34,47 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// replace operation. Value can be any JSON value.
+    /// 
     /// </summary>
     [DataContract]
-    public partial class JsonPatchReplace :  IEquatable<JsonPatchReplace>
-    {         /// <summary>
-        /// Gets or Sets Op
+    public partial class EmailAddress :  IEquatable<EmailAddress>
+    { 
+        /// <summary>
+        /// Gets or Sets Email
         /// </summary>
-        public enum OpEnum
+        [Required]
+        [DataMember(Name="email")]
+        public string Email { get; set; }
+        /// <summary>
+        /// Gets or Sets EmailType
+        /// </summary>
+        public enum EmailType
         { 
             /// <summary>
-            /// Enum ReplaceEnum for "replace"
+            /// Enum PrimaryEnum for "Primary"
             /// </summary>
-            [EnumMember(Value = "replace")]
-            ReplaceEnum = 1
+            [EnumMember(Value = "Primary")]
+            PrimaryEnum = 1,
+            
+            /// <summary>
+            /// Enum SecondaryEnum for "Secondary"
+            /// </summary>
+            [EnumMember(Value = "Secondary")]
+            SecondaryEnum = 2
         }
 
         /// <summary>
-        /// Gets or Sets Op
+        /// Gets or Sets EmailType
         /// </summary>
         [Required]
-        [DataMember(Name="op")]
-        public OpEnum? Op { get; set; }
+        [DataMember(Name="emailType")]
+        public EmailType? EmailType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Path
+        /// Gets or Sets Notes
         /// </summary>
-        [Required]
-        [DataMember(Name="path")]
-        public JsonPointer Path { get; set; }
+        [DataMember(Name="notes")]
+        public List<NoteId> Notes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,9 +83,10 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class JsonPatchReplace {\n");
-            sb.Append("  Op: ").Append(Op).Append("\n");
-            sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("class EmailAddress {\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  EmailType: ").Append(EmailType).Append("\n");
+            sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,29 +109,34 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((JsonPatchReplace)obj);
+            return obj.GetType() == GetType() && Equals((EmailAddress)obj);
         }
 
         /// <summary>
-        /// Returns true if JsonPatchReplace instances are equal
+        /// Returns true if EmailAddress instances are equal
         /// </summary>
-        /// <param name="other">Instance of JsonPatchReplace to be compared</param>
+        /// <param name="other">Instance of EmailAddress to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(JsonPatchReplace other)
+        public bool Equals(EmailAddress other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Op == other.Op ||
-                    Op != null &&
-                    Op.Equals(other.Op)
+                    Email == other.Email ||
+                    Email != null &&
+                    Email.Equals(other.Email)
                 ) && 
                 (
-                    Path == other.Path ||
-                    Path != null &&
-                    Path.Equals(other.Path)
+                    EmailType == other.EmailType ||
+                    EmailType != null &&
+                    EmailType.Equals(other.EmailType)
+                ) && 
+                (
+                    Notes == other.Notes ||
+                    Notes != null &&
+                    Notes.SequenceEqual(other.Notes)
                 );
         }
 
@@ -132,10 +150,12 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Op != null)
-                    hashCode = hashCode * 59 + Op.GetHashCode();
-                    if (Path != null)
-                    hashCode = hashCode * 59 + Path.GetHashCode();
+                    if (Email != null)
+                    hashCode = hashCode * 59 + Email.GetHashCode();
+                    if (EmailType != null)
+                    hashCode = hashCode * 59 + EmailType.GetHashCode();
+                    if (Notes != null)
+                    hashCode = hashCode * 59 + Notes.GetHashCode();
                 return hashCode;
             }
         }
@@ -143,12 +163,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(JsonPatchReplace left, JsonPatchReplace right)
+        public static bool operator ==(EmailAddress left, EmailAddress right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(JsonPatchReplace left, JsonPatchReplace right)
+        public static bool operator !=(EmailAddress left, EmailAddress right)
         {
             return !Equals(left, right);
         }
