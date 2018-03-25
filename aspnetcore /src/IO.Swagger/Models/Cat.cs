@@ -42,12 +42,14 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets Animal
         /// </summary>
+        [Required]
         [DataMember(Name="animal")]
         public AnimalInfo Animal { get; set; }
 
         /// <summary>
         /// Gets or Sets _Cat
         /// </summary>
+        [Required]
         [DataMember(Name="cat")]
         public CatInfo _Cat { get; set; }
 
