@@ -209,7 +209,7 @@ namespace IO.Swagger.Models
         /// Gets or Sets Photos
         /// </summary>
         [DataMember(Name="photos")]
-        public PhotoId Photos { get; set; }
+        public List<PhotoId> Photos { get; set; }
 
         /// <summary>
         /// Gets or Sets Notes
@@ -350,7 +350,7 @@ namespace IO.Swagger.Models
                 (
                     Photos == other.Photos ||
                     Photos != null &&
-                    Photos.Equals(other.Photos)
+                    Photos.SequenceEqual(other.Photos)
                 ) && 
                 (
                     Notes == other.Notes ||
