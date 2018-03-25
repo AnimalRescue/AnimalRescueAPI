@@ -56,6 +56,7 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets AnimalInfoId
         /// </summary>
+        [Required]
         [DataMember(Name="animalInfoId")]
         public AnimalId AnimalInfoId { get; set; }
 
@@ -111,7 +112,6 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets PlaceInIsolation
         /// </summary>
-        [Required]
         [DataMember(Name="placeInIsolation")]
         public bool? PlaceInIsolation { get; set; }
 
