@@ -37,21 +37,19 @@ namespace IO.Swagger.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class Cat : AnimalInfo,  IEquatable<Cat>
+    public partial class Cat :  IEquatable<Cat>
     { 
         /// <summary>
-        /// Gets or Sets Breed
+        /// Gets or Sets Animal
         /// </summary>
-        [Required]
-        [DataMember(Name="breed")]
-        public CatBreeds Breed { get; set; }
+        [DataMember(Name="animal")]
+        public AnimalInfo Animal { get; set; }
 
         /// <summary>
-        /// Gets or Sets Color
+        /// Gets or Sets _Cat
         /// </summary>
-        [Required]
-        [DataMember(Name="color")]
-        public CatColors Color { get; set; }
+        [DataMember(Name="cat")]
+        public CatInfo _Cat { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,8 +59,8 @@ namespace IO.Swagger.Models
         {
             var sb = new StringBuilder();
             sb.Append("class Cat {\n");
-            sb.Append("  Breed: ").Append(Breed).Append("\n");
-            sb.Append("  Color: ").Append(Color).Append("\n");
+            sb.Append("  Animal: ").Append(Animal).Append("\n");
+            sb.Append("  _Cat: ").Append(_Cat).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -71,7 +69,7 @@ namespace IO.Swagger.Models
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public  new string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -100,14 +98,14 @@ namespace IO.Swagger.Models
 
             return 
                 (
-                    Breed == other.Breed ||
-                    Breed != null &&
-                    Breed.Equals(other.Breed)
+                    Animal == other.Animal ||
+                    Animal != null &&
+                    Animal.Equals(other.Animal)
                 ) && 
                 (
-                    Color == other.Color ||
-                    Color != null &&
-                    Color.Equals(other.Color)
+                    _Cat == other._Cat ||
+                    _Cat != null &&
+                    _Cat.Equals(other._Cat)
                 );
         }
 
@@ -121,10 +119,10 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Breed != null)
-                    hashCode = hashCode * 59 + Breed.GetHashCode();
-                    if (Color != null)
-                    hashCode = hashCode * 59 + Color.GetHashCode();
+                    if (Animal != null)
+                    hashCode = hashCode * 59 + Animal.GetHashCode();
+                    if (_Cat != null)
+                    hashCode = hashCode * 59 + _Cat.GetHashCode();
                 return hashCode;
             }
         }
