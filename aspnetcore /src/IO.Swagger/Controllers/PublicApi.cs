@@ -47,9 +47,9 @@ namespace IO.Swagger.Controllers
         /// </summary>
         /// <remarks>Deletes an existing Intake by id</remarks>
         /// <param name="id"></param>
-        /// <response code="200">ok</response>
-        /// <response code="400">bad request</response>
-        /// <response code="401">unauthorized request</response>
+        /// <response code="200">OK</response>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
         [HttpDelete]
         [Route("/jgartee/AnimalRescueCQRS/1.0.0/intake/{id}")]
         [ValidateModelState]
@@ -64,16 +64,16 @@ namespace IO.Swagger.Controllers
         /// </summary>
         /// <remarks>Gets an existing Intake by id</remarks>
         /// <param name="id"></param>
-        /// <response code="200">ok</response>
-        /// <response code="400">bad request</response>
-        /// <response code="401">unauthorized request</response>
+        /// <response code="200">OK</response>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
         [HttpGet]
         [Route("/jgartee/AnimalRescueCQRS/1.0.0/intake/{id}")]
         [ValidateModelState]
         [SwaggerOperation("GetIntakeById")]
-        [SwaggerResponse(200, typeof(Intake), "ok")]
-        [SwaggerResponse(400, typeof(Intake), "bad request")]
-        [SwaggerResponse(401, typeof(Intake), "unauthorized request")]
+        [SwaggerResponse(200, typeof(Intake), "OK")]
+        [SwaggerResponse(400, typeof(Intake), "Bad Request")]
+        [SwaggerResponse(401, typeof(Intake), "Unauthorized")]
         public virtual IActionResult GetIntakeById([FromRoute]Guid? id)
         { 
             string exampleJson = null;
@@ -89,13 +89,15 @@ namespace IO.Swagger.Controllers
         /// </summary>
         /// <remarks>Updates an existing Intake by id with only elements that are changing using</remarks>
         /// <param name="id">unique id of Intake to patch</param>
-        /// <param name="patchIntake">partial json object of Intake with fields to patch</param>
-        /// <response code="200">ok</response>
+        /// <param name="jsonPatch">partial json object of Intake with fields to patch</param>
+        /// <response code="200">OK</response>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
         [HttpPatch]
         [Route("/jgartee/AnimalRescueCQRS/1.0.0/intake/{id}")]
         [ValidateModelState]
         [SwaggerOperation("PatchIntakeById")]
-        public virtual void PatchIntakeById([FromRoute]Guid? id, [FromBody]Intake patchIntake)
+        public virtual void PatchIntakeById([FromRoute]Guid? id, [FromBody]JsonPatch jsonPatch)
         { 
             throw new NotImplementedException();
         }
@@ -106,8 +108,9 @@ namespace IO.Swagger.Controllers
         /// <remarks>Replaces an existing Intake by id</remarks>
         /// <param name="id"></param>
         /// <param name="intake">unique id of Intake to update</param>
-        /// <response code="200">ok</response>
-        /// <response code="401">unauthorized request</response>
+        /// <response code="200">OK</response>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
         [HttpPut]
         [Route("/jgartee/AnimalRescueCQRS/1.0.0/intake/{id}")]
         [ValidateModelState]

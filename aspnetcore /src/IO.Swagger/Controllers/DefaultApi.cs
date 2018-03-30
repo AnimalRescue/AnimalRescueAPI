@@ -48,8 +48,8 @@ namespace IO.Swagger.Controllers
         /// <remarks>Create an Intake with all required components</remarks>
         /// <param name="intake"></param>
         /// <response code="200">OK</response>
-        /// <response code="400">bad request</response>
-        /// <response code="401">unauthorized request</response>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
         [HttpPost]
         [Route("/jgartee/AnimalRescueCQRS/1.0.0/intake")]
         [ValidateModelState]
@@ -69,16 +69,16 @@ namespace IO.Swagger.Controllers
         /// <param name="type">Intake type of Surrender, Transfer, or Stray</param>
         /// <param name="location">Specifies a search string found in Location, Building, Room, Kennel, or Enclosure name</param>
         /// <param name="searchString">pass an optional search string for looking up items</param>
-        /// <response code="200">ok</response>
-        /// <response code="400">bad request</response>
-        /// <response code="401">unauthorized request</response>
+        /// <response code="200">OK</response>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
         [HttpGet]
         [Route("/jgartee/AnimalRescueCQRS/1.0.0/intake")]
         [ValidateModelState]
         [SwaggerOperation("GetFilteredIntakes")]
-        [SwaggerResponse(200, typeof(List<IntakeList>), "ok")]
-        [SwaggerResponse(400, typeof(List<IntakeList>), "bad request")]
-        [SwaggerResponse(401, typeof(List<IntakeList>), "unauthorized request")]
+        [SwaggerResponse(200, typeof(List<IntakeList>), "OK")]
+        [SwaggerResponse(400, typeof(List<IntakeList>), "Bad Request")]
+        [SwaggerResponse(401, typeof(List<IntakeList>), "Unauthorized")]
         public virtual IActionResult GetFilteredIntakes([FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]DateTime? fromDate, [FromQuery]string type, [FromQuery]string location, [FromQuery]string searchString)
         { 
             string exampleJson = null;
