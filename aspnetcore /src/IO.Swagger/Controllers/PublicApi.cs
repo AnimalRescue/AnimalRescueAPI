@@ -87,7 +87,7 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// updates an Intake by id
         /// </summary>
-        /// <remarks>Updates an existing Intake by id with only elements that are changing</remarks>
+        /// <remarks>Updates an existing Intake by id with only elements that are changing using</remarks>
         /// <param name="id">unique id of Intake to patch</param>
         /// <param name="patchIntake">partial json object of Intake with fields to patch</param>
         /// <response code="200">ok</response>
@@ -105,14 +105,14 @@ namespace IO.Swagger.Controllers
         /// </summary>
         /// <remarks>Replaces an existing Intake by id</remarks>
         /// <param name="id"></param>
-        /// <param name="updateIntake">unique id of Intake to update</param>
+        /// <param name="intake">unique id of Intake to update</param>
         /// <response code="200">ok</response>
         /// <response code="401">unauthorized request</response>
         [HttpPut]
         [Route("/jgartee/AnimalRescueCQRS/1.0.0/intake/{id}")]
         [ValidateModelState]
         [SwaggerOperation("UpdateIntakeById")]
-        public virtual void UpdateIntakeById([FromRoute]Guid? id, [FromBody]Intake updateIntake)
+        public virtual void UpdateIntakeById([FromRoute]Guid? id, [FromBody]Intake intake)
         { 
             throw new NotImplementedException();
         }
