@@ -62,13 +62,13 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Returns a filtered list of all Intakes for the Rescue
         /// </summary>
-        /// <remarks>Intake serves as the aggregate for the process of bringing animals into the Rescue</remarks>
+        /// <remarks>Returns an array of IntakeList structures.  Intake serves as the aggregate for the process of bringing animals into the Rescue.</remarks>
         /// <param name="limit">Limits the number of items on a page</param>
-        /// <param name="offset">Specifies the page number of the artists to be displayed</param>
+        /// <param name="offset">Specifies the page number of the items to be displayed</param>
         /// <param name="fromDate">Specifies the first intake date to return</param>
-        /// <param name="status">Adoption Status of Pending, Available, Medical, Hold</param>
-        /// <param name="location">Specifies a search string found int Location, Building, Room, Kennel, or Enclosure name</param>
-        /// <param name="name">Specifies a matching pattern for the name</param>
+        /// <param name="type">Intake type of Surrender, Transfer, or Stray</param>
+        /// <param name="location">Specifies a search string found in Location, Building, Room, Kennel, or Enclosure name</param>
+        /// <param name="searchString">pass an optional search string for looking up items</param>
         /// <response code="200">ok</response>
         /// <response code="400">bad request</response>
         /// <response code="401">unauthorized request</response>
@@ -79,7 +79,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(200, typeof(List<IntakeList>), "ok")]
         [SwaggerResponse(400, typeof(List<IntakeList>), "bad request")]
         [SwaggerResponse(401, typeof(List<IntakeList>), "unauthorized request")]
-        public virtual IActionResult GetFilteredIntakes([FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]DateTime? fromDate, [FromQuery]string status, [FromQuery]string location, [FromQuery]DateTime? name)
+        public virtual IActionResult GetFilteredIntakes([FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]DateTime? fromDate, [FromQuery]string type, [FromQuery]string location, [FromQuery]string searchString)
         { 
             string exampleJson = null;
             
