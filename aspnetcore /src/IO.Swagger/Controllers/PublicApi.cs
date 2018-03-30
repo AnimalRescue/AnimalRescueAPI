@@ -101,9 +101,9 @@ namespace IO.Swagger.Controllers
         }
 
         /// <summary>
-        /// updates an Intake by id
+        /// replaces an Intake by id
         /// </summary>
-        /// <remarks>Updates an existing Foster by id</remarks>
+        /// <remarks>Replaces an existing Intake by id</remarks>
         /// <param name="id"></param>
         /// <param name="updateIntake">unique id of Intake to update</param>
         /// <response code="200">ok</response>
