@@ -65,6 +65,7 @@ namespace IO.Swagger.Controllers
         /// <remarks>Returns an array of IntakeList structures.  Intake serves as the aggregate for the process of bringing animals into the Rescue.</remarks>
         /// <param name="limit">Limits the number of items on a page</param>
         /// <param name="offset">Specifies the page number of the items to be displayed</param>
+        /// <param name="animalType">Specifies cat or dog</param>
         /// <param name="fromDate">Specifies the first intake date to return</param>
         /// <param name="type">Intake type of Surrender, Transfer, or Stray</param>
         /// <param name="location">Specifies a search string found in Location, Building, Room, Kennel, or Enclosure name</param>
@@ -79,7 +80,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(200, typeof(List<IntakeList>), "OK")]
         [SwaggerResponse(400, typeof(List<IntakeList>), "Bad Request")]
         [SwaggerResponse(401, typeof(List<IntakeList>), "Unauthorized")]
-        public virtual IActionResult GetFilteredIntakes([FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]DateTime? fromDate, [FromQuery]string type, [FromQuery]string location, [FromQuery]string searchString)
+        public virtual IActionResult GetFilteredIntakes([FromQuery]int? limit, [FromQuery]int? offset, [FromQuery]string animalType, [FromQuery]DateTime? fromDate, [FromQuery]string type, [FromQuery]string location, [FromQuery]string searchString)
         { 
             string exampleJson = null;
             
